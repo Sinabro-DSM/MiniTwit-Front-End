@@ -1,67 +1,58 @@
-.sidebar
-{
-    border-left: 1px solid #70707031;
-    border-right: 1px solid #70707031;
-    height: 100vh;
-    float: left;
-    width: 300px;
+.sidebar {
+  border-left: 1px solid #70707031;
+  border-right: 1px solid #70707031;
+  height: 100vh;
+  float: left;
+  width: 300px;
 }
 
-.twitIcon
-{
-    width: 38px;
-    height: 38px;
-    background-color: #1FA1F3;
-    border-radius: 99px;
-    margin: 20px 0px 60px 20px;
+.twitIcon {
+  width: 38px;
+  height: 38px;
+  background-color: #1fa1f3;
+  border-radius: 99px;
+  margin: 20px 0px 60px 20px;
 }
 
-.sideBarIconContainer > div > img
-{
-    width: 38px;
-    height: 38px;
-    
+.sideBarIconContainer > div > img {
+  width: 38px;
+  height: 38px;
 }
 
-.sideBarIconContainer > div
-{
-    display: flex;
-    align-items: center;
-    margin: 10px 10px 0px 10px;
-    cursor: pointer;
-    padding: 10px;
+.sideBarIconContainer > div {
+  display: flex;
+  align-items: center;
+  margin: 10px 10px 0px 10px;
+  cursor: pointer;
+  padding: 10px;
 }
 
-.sideBarIconContainer > div:hover
-{
-    background-color: rgba(128, 128, 128, 0.096);
-    border-radius: 15px;
+.sideBarIconContainer > div:hover {
+  background-color: rgba(128, 128, 128, 0.096);
+  border-radius: 15px;
 }
 
-.sideBarIconContainer > div > h3
-{
-    margin: 0;
-    padding: 0;
-    margin-left: 20px;
+.sideBarIconContainer > div > h3 {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
 }
 
-.moreBox
-{
-    border: 1px solid #70707031;   
-    border-radius: 15px; 
-    display: flex;
-    flex-wrap: wrap;
+.moreBox {
+  border: 1px solid #70707031;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.moreBox > button
-{
-    background-color: #6FBEF7;
-    color: white;
-    width: 200px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    font-size: 17px;
-    font-weight: 600;
-    margin: 20px auto 0px;
+.moreBox > button {
+  background-color: #6fbef7;
+  color: white;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 20px auto 0px;
 }
