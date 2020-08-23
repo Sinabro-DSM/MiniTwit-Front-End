@@ -1,12 +1,14 @@
 import React from "react";
 import Header from "./components/header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
+import User from "./components/userData/User";
 
 function App() {
   return (
     <div>
       <Sidebar />
       <Header />
+      <User />
     </div>
   );
 }
