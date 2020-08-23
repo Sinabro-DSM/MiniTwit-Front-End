@@ -1,8 +1,15 @@
 import React from "react";
-import "./App.css";
+import Header from "./components/header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import User from "./components/userData/User";
 
 function App() {
-  return <div className="App"></div>;
-}
+  return (
+    <div>
+      <Sidebar />
+      <Header />
+      <User />
+    </div>
+  );
 
 export default App;
