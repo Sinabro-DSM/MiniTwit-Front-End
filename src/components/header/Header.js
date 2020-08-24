@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/style/header/header.css";
+import Search from "../userSearch/Search";
 
 function Header() {
   return (
