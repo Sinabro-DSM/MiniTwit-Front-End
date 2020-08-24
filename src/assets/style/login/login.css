@@ -52,16 +52,25 @@ body{
     position: relative;
     font-size: 14px;
 }
-.summitBtn{
+.submitBtn{
     margin-top: 20px;
     width: 550px;
     height: 50px;
     border-radius: 25px;
-    background-color: #A5D0F6;
+    background-color: rgb(130, 197, 255);
     color: white;
     border: none;
     font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
 }
+
+.submitBtn:hover
+{
+    opacity: 1;
+    transition: 0.3s;
+}
+
 .signUp{
     color: #1592E6;
     font-size: 12px;
