@@ -5,7 +5,6 @@ function User() {
   return (
     <div className="userContainer">
       <div className="background"></div>
-      <button>프로필 설정하기</button>
       <div className="profilePicture"></div>
       <div className="profile">
         <p id="id">rin3583</p>
