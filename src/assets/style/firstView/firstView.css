@@ -1,0 +1,101 @@
+body{
+    margin: 0px;
+    overflow: hidden;
+}
+#root{
+    width: 100%;
+}
+.App{
+    display: flex;
+}
+article{
+    width: 500px;
+    height: 100%;
+}
+.left{
+    background-color: #72CAF9;
+    float: right;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    height: 100vh;
+    width: 50%;
+}
+.right{
+    margin-left: 270px;
+    background-color: white;
+    text-align: left;
+}
+.right > button{
+    width: 300px;
+    height: 40px;
+    margin-bottom: 12px;
+    border: 1px solid;
+    border-color: #72CAF9;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.signUp{
+    background-color: #72CAF9;
+    color: white;
+}
+.logIn{
+    background-color: white;
+    color: #72CAF9;
+}
+header{
+    display: flex;
+    float: right;
+    margin-top: 20px;
+}
+header > button{
+    background-color: white;
+    height: 40px;
+    width: 80px;
+    margin-right: 40px;
+    border: 1px solid;
+    border-color: #72CAF9;
+    border-radius: 20px;
+    color: #72CAF9;
+    font-weight: bold;
+}
+.headerText{
+    margin: 0;
+}
+.inputEmail, .inputPw{
+    text-align: left;
+    width: 150px;
+    background-color: #E4E4E4;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 12px;
+    border-bottom: solid 2px #707070;
+}
+.inputEmail > input, .inputPw > input{
+    width: 140px;
+    border: none;
+    background-color: #E4E4E4;
+}
+.textContainer > p{
+    font-weight: bold;
+    font-size: 12px;
+}
+h1{
+    margin: 0;
+    display: inline-block;
+    font-size: 26px;
+    width: 50%;
+}
+.textContainer{
+    display: inline-block;
+    margin-top: 242px;
+    width: 600px;
+    height: 144px;
+    text-align: left;
+}
+.left > p{
+    margin-left: 120px;
+}
+.left:first-child{
+    padding-top: 300px;
+}
