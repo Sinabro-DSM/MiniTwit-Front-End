@@ -4,6 +4,7 @@ import "./../../assets/style/sidebar/sidebar.css";
 import "./../../assets/style/main/index.css";
 import { profile, threeDot } from "../../assets/img";
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+
 const Sidebar = () => {
   const [showing, setShowing] = useState(false);
   const onClickMoreButton = () => setShowing(!showing);
@@ -16,7 +17,10 @@ const Sidebar = () => {
           <article className="sideBarIconContainer">
             <div>
               <img src={profile}></img>
+
            <Router><Link to="/users"> <h3>프로필</h3> </Link></Router>
+
+              <h3>프로필</h3>
             </div>
             <div onClick={onClickMoreButton}>
               <img src={threeDot}></img>

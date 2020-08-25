@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import "../../assets/style/header/header.css";
 import Search from "../profile/Search";
@@ -13,6 +14,4 @@ class Header extends Component {
       </React.Fragment>
     );
   }
-}
-
 export default Header;

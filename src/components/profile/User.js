@@ -1,3 +1,4 @@
+
 import React from "react";
 import "../../assets/style/profile/profile.css";
 
@@ -15,6 +16,5 @@ function User() {
       </div>
     </div>
   );
-}
 
 export default User;
