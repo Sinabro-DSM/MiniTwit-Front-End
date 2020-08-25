@@ -39,6 +39,7 @@
   font-weight: bold;
   outline: none;
 }
+button:hover {
 .userContainer > button:hover {
   background: #4bb4ff;
   color: white;
