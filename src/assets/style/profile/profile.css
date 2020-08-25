@@ -26,7 +26,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-button {
+
+#editBtn {
   width: 120px;
   height: 40px;
   margin: 13px 0px 0px 690px;
