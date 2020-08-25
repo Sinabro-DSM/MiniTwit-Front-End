@@ -2,7 +2,6 @@
 {
     border: 1px solid #70707031;
     width: 830px;
-    height: 100vh;
     margin-left: 500px;
 }
 
@@ -13,7 +12,7 @@
     margin-top: 10px;
 }
 
-.addPostInput > img
+.addPostInput > img,.postItem > img
 {
     width: 38px;
     height: 38px;
@@ -48,4 +47,62 @@
     border: none;
     color: white;
     font-weight: 600;
+}
+
+.postItem {
+    margin-left: 500px;
+    width: 830px;
+    border-bottom : 1px solid #70707031;
+    border-right: 1px solid #70707031;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contentsContainer
+{
+    width: 100%;
+}
+
+.infoBox
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoBox > button
+{
+    border: none;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+
+.userNameBox {
+    display: flex;
+    align-items: center;
+}
+
+.userNameBox > h3, .userNameBox > span
+{
+    margin: 10px 0px 0px 10px;
+}
+
+.contentsBox > p
+{
+    margin: 0px 0px 0px 10px;
+}
+
+.contentsBox 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.contentsBox > img
+{
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
 }
