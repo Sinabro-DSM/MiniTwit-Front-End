@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/style/profile/profile.css";
+import Follow from "../follow/Follow";
 
 function User() {
   return (
@@ -9,8 +10,7 @@ function User() {
       <div className="profile">
         <p id="id">rin3583</p>
         <p id="email">@user.email.com</p>
-        <a>0 팔로워</a>
-        <a>0 팔로잉</a>
+        <Follow />
       </div>
     </div>
   );
