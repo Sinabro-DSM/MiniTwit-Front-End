@@ -9,8 +9,8 @@ const PostItem = ({email,nickname,userImg,content,uploadImg}) => {
             <img src={userImg}></img>
             <div className="contentsContainer">
                 <div className="infoBox">
-                    <div className="userNameBox">
                         <h3>{nickname}</h3>
+                    <div className="userNameBox">
                         <span>{email}</span>
                     </div>
                         <button>X</button>
