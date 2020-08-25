@@ -1,14 +1,13 @@
-import React from "react";
-import Header from "./components/header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import User from "./components/profile/User";
+
+import React from 'react';
+import FirstView from './components/firstView/FirstView';
+
 
 function App() {
   return (
-    <div>
-      <Sidebar />
-      <Header />
-      <User />
+    <div className="App">
+      <FirstView></FirstView>
+
     </div>
   );
 }
