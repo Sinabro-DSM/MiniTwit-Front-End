@@ -9,13 +9,12 @@ function App() {
   return (
     <div>
       <Sidebar/>
+      <Header/>
       <Router>
         
         <Switch>
-          
-        <Route path="/" component={Header}/>     
-        <Route exact path="/users" component={User}/>
-          <Route path="/search" component={Search}/>
+         <Route  path="/users" component={User}/>
+          <Route exact path="/search" component={Search}/>
         </Switch>
       </Router>
     </div>

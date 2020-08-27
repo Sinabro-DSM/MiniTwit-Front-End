@@ -3,7 +3,7 @@
   height: 500px;
   border: 1px solid hsla(0, 0%, 44%, 0.3);
   float: right;
-  margin-right: 202px;
+  margin-right: 185px;
 }
 
 .background {
@@ -39,7 +39,7 @@
   font-weight: bold;
   outline: none;
 }
-button:hover {
+button:hover {  
   background: #4bb4ff;
   color: white;
 }

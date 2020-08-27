@@ -1,9 +1,10 @@
 
 import React from "react";
 import "../../assets/style/profile/profile.css";
-
+import Header from '../header/Header';
 function User() {
   return (
+    <React.Fragment>
     <div className="userContainer">
       <div className="background"></div>
       <button id="editBtn">프로필 설정하기</button>
@@ -15,6 +16,7 @@ function User() {
         <a>0 팔로잉</a> 
       </div>
     </div>
+    </React.Fragment>
   );
   }
 export default User;
