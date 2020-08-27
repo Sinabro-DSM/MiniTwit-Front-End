@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    text-align: center;
+    margin-top: 50px;
+}
+.headIcon{
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #4BA0EC;
+    border-radius: 50%;
+}
+.title{
+    margin-top: 30px;
+    font-size: 24px;
+}
+.idContainer{
+    display: inline-block;
+    width: 550px;
+    background-color: #F6F8FA;
+    border-bottom: solid 2px #697785;
+}
+.inputId{
+    width: 550px;
+    height: 40px;
+    background-color: #F6F8FA;
+    border: none;
+}
+.pwContainer{
+    display: inline-block;
+    width: 550px;
+    background-color: #F6F8FA;
+    border-bottom: solid 2px #697785;
+}
+.idLabel{
+    left: -247px;
+    position: relative;
+    font-size: 14px;
+}
+.blank{
+    height: 20px;
+}
+.inputPw{
+    width: 550px;
+    height: 40px;
+    background-color: #F6F8FA;
+    border: none;
+}
+.pwLabel{
+    left: -240px;
+    position: relative;
+    font-size: 14px;
+}
+.submitBtn{
+    margin-top: 20px;
+    width: 550px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: rgb(130, 197, 255);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.submitBtn:hover
+{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.signUp{
+    color: #1592E6;
+    font-size: 12px;
+}

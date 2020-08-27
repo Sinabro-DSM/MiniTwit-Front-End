@@ -3,7 +3,7 @@
   height: 500px;
   border: 1px solid hsla(0, 0%, 44%, 0.3);
   float: right;
-  margin-right: 202px;
+  margin-right: 185px;
 }
 
 .background {
@@ -25,6 +25,23 @@
   background-image: url(../../img/profile.PNG);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.userContainer > button {
+  width: 120px;
+  height: 40px;
+  margin: 13px 0px 0px 690px;
+  border: 1.5px solid #6fbef7;
+  border-radius: 20px;
+  color: #1fa1f3;
+  background: white;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+button:hover {  
+  background: #4bb4ff;
+  color: white;
 }
 #id {
   margin: 50px 0px 0px 30px;
