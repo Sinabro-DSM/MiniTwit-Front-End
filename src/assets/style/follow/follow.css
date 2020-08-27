@@ -1,0 +1,24 @@
+button {
+  width: 120px;
+  height: 40px;
+  margin: 0px 0px 0px 690px;
+  border: 1.5px solid #6fbef7;
+  border-radius: 20px;
+  color: #1fa1f3;
+  background: white;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+
+button:hover {
+  background: #4bb4ff;
+  color: white;
+}
+
+a {
+  margin: 0px 0px 0px 25px;
+  color: hsl(0, 0%, 0%, 0.6);
+  font-size: 15px;
+  font-weight: 600;
+}
