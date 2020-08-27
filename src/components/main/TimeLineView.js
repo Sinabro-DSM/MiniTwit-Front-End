@@ -13,7 +13,7 @@ class TimeLineView extends React.Component {
     };
     
     config = {
-        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRmY2Q5ZmM5YmExOTcwMGE5NDY4YTY2N2U3Y2ZkMzExIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg1NDA0MDQsImV4cCI6MTU5ODU0MjIwNH0.O9Og8ki0IxVrU9SmiK6cDWvxva7wH0_KMICWM5wEjXs'}
+        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRmOTg0NGFhMmZmMjA1M2E5NjAxMjYzMTIxOWRiNWI5IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg1NTAxMzUsImV4cCI6MTU5ODU1MTkzNX0.tNvNE8qhdNEefeSg1vqqc5buZaaeyGxQxunPgDagcoI'}
     }
 
     handleScroll = () => {
@@ -29,18 +29,16 @@ class TimeLineView extends React.Component {
        };
 
        getMorePosts = () => {
-        axios.get("http://3.34.99.55:3000/timeline/" + this.state.params, this.config)
+        axios.get("http://52.78.186.198:3000/timeline/" + this.state.params, this.config)
           .then((response) => {
-            const fetchedData = response.data.timelines; // 피드 데이터 부분
-            // 기존 데이터 배열과 새로 받아온 데이터 배열을 합쳐 새 배열을 만들고 state에 저장한다. 
+            const fetchedData = response.data.timelines; 
             const mergedData = this.state.posts.concat(...fetchedData);
             this.setState({posts : mergedData});
         });
       };
       
-  
     async getPosts() {
-       const res = await axios.get("http://3.34.99.55:3000/timeline/" + this.state.params, this.config);
+       const res = await axios.get("http://52.78.186.198:3000/timeline/" + this.state.params, this.config);
         this.setState({isLoading : false})
         console.log(this.state.params)
         console.log(res)
@@ -69,11 +67,14 @@ class TimeLineView extends React.Component {
               {posts.map((post) => (
                 <PostItem
                   key={post.id}
+                  id={post.id}
                   email={post.User.email}
                   content={post.content}
+                  date={post.createdAt}
                   nickname={post.User.nickname}
                   userImg={post.User.img}
-                  uploadImg={post.Images.img}></PostItem>
+                  uploadImg={post.Images.img}
+                  ></PostItem>
               ))}
             </div>
           )}
