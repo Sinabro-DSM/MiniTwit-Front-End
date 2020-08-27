@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/style/profile/edit.css";
+import ImgUpload from "./ImgUpload";
 
 function ProfileEdit({ isOpen, close }) {
   return (
@@ -17,7 +18,7 @@ function ProfileEdit({ isOpen, close }) {
               마음에 드는 사진이 있나요? 지금 업로드 하세요.
             </p>
             <div className="profileImg"></div>
-            <button className="upload">업로드</button>
+            <ImgUpload />
           </div>
         </React.Fragment>
       ) : null}
