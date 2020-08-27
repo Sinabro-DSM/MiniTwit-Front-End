@@ -3,7 +3,7 @@
   height: 500px;
   border: 1px solid hsla(0, 0%, 44%, 0.3);
   float: right;
-  margin-right: 202px;
+  margin-right: 185px;
 }
 
 .background {
@@ -26,7 +26,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-button {
+
+.userContainer > button {
   width: 120px;
   height: 40px;
   margin: 13px 0px 0px 690px;
@@ -38,8 +39,7 @@ button {
   font-weight: bold;
   outline: none;
 }
-
-button:hover {
+button:hover {  
   background: #4bb4ff;
   color: white;
 }
