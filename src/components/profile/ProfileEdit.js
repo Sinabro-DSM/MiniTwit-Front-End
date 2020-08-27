@@ -17,7 +17,6 @@ function ProfileEdit({ isOpen, close }) {
             <p className="content">
               마음에 드는 사진이 있나요? 지금 업로드 하세요.
             </p>
-            <div className="profileImg"></div>
             <ImgUpload />
           </div>
         </React.Fragment>

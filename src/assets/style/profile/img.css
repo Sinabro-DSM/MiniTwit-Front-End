@@ -1,2 +1,9 @@
-input[type="file"] {
-}
+.profileImg {
+    width: 180px;
+    height: 180px;
+    border: 1px solid #9a9a9a;
+    border-radius: 50%;
+    margin: 40px 0px 0px 160px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
