@@ -1,7 +1,7 @@
 
+
 import React from "react";
-import "../../assets/style/profile/profile.css";
-import Header from '../header/Header';
+import "../../assets/style/profile/profile.css"
 function User() {
   return (
     <React.Fragment>
