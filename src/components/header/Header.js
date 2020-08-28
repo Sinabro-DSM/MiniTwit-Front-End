@@ -1,14 +1,18 @@
-import React from "react";
+
+import React, { Component } from "react";
 import "../../assets/style/header/header.css";
+import Search from "../profile/Search";
+import axios from "axios";
 
-function Header() {
-  return (
-    <div className="side">
-      <p>rin3583</p>
-      <input type="text" placeholder="친구를 찾아보세요" />
-      <button>검색</button>
-    </div>
-  );
+class Header extends Component {
+ 
+  render() {
+   
+    return (
+      <React.Fragment>
+        <Search/>
+      </React.Fragment>
+    );
+  }
 }
-
 export default Header;

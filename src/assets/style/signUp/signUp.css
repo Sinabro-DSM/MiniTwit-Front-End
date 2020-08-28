@@ -1,0 +1,105 @@
+body{
+    margin: 0;
+    margin-top: 30px;
+}
+
+.app
+{
+    display: flex;
+    justify-content: center;
+}
+
+.loginHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headIcon{
+    width: 40px;
+    height: 40px;
+    background-color: #4BA0EC;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.title{
+    margin-top: 30px;
+    font-size: 24px;
+}
+.nameContainer{
+    width: 560px;
+    background-color: #F6F8FA;
+    border-bottom: solid 2px #697785;
+}
+.nameLabel{
+    font-size: 14px;
+}
+
+.inputField > form > div
+{
+    margin-bottom: 20px;
+}
+
+.inputName{
+    width: 550px;
+    height: 39px;
+    background-color: #F6F8FA;
+    border: none;
+}
+.idContainer{
+    width: 560px;
+    background-color: #F6F8FA;
+    border-bottom: solid 2px #697785;
+}
+.inputId{
+    width: 550px;
+    height: 39px;
+    background-color: #F6F8FA;
+    border: none;
+}
+.pwContainer{
+    width: 560px;
+    background-color: #F6F8FA;
+    border-bottom: solid 2px #697785;
+}
+.idLabel{
+    font-size: 14px;
+}
+.inputPw{
+    width: 550px;
+    height: 37px;
+    background-color: #F6F8FA;
+    border: none;
+}
+.pwLabel{
+    font-size: 14px;
+}
+.nextBtn{
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgb(109, 180, 241);
+    opacity: 0.7;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.nextBtn:hover
+{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.logIn{
+    color: #1592E6;
+    font-size: 12px;
+}
+
+.successBox
+{
+    text-align: center;
+}
