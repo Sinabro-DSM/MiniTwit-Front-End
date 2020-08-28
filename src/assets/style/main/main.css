@@ -82,6 +82,7 @@
     border: none;
     font-size: 17px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 
@@ -100,21 +101,19 @@
     color: #707070f8;
 }
 
-.contentsBox > p
-{
-    margin: 0px 0px 0px 15px;
-}
-
 .contentsBox 
 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 10px;
+   margin: 0px 0px 0px 15px;
 }
 .contentsBox > img
 {
     width: 33px;
     height: 33px;
     margin-right: 10px;
+}
+
+.likeButton
+{
+    float: right;
+    cursor: pointer;
 }
