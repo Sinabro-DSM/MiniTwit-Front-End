@@ -21,7 +21,7 @@
   height: 180px;
   border: 1px solid #9a9a9a;
   border-radius: 50%;
-  margin: -130px 80px -20px 25px;
+  margin: -200px 80px -10px 25px;
   background-image: url(../../img/profile.PNG);
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,12 +39,13 @@
   font-weight: bold;
   outline: none;
 }
+
 button:hover {  
   background: #4bb4ff;
   color: white;
 }
 #id {
-  margin: 50px 0px 0px 30px;
+  margin: 35px 0px 0px 30px;
   font-size: 20px;
   font-weight: bolder;
 }
@@ -52,4 +53,23 @@ button:hover {
 #email {
   color: hsl(0, 0%, 0%, 0.55);
   margin: 0px 0px 10px 25px;
+}
+
+.profile > a {
+  margin: 0px 0px 0px 25px;
+  color: hsl(0, 0%, 0%, 0.6);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.otherProfile {
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+  border: 1px solid #9a9a9a;
+  border-radius: 50%;
+  margin: -100px 80px 0px 25px;
+  background-image: url(../../img/profile.PNG);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

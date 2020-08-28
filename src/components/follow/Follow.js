@@ -18,13 +18,21 @@ class Follow extends Component {
   render() {
     return (
       <React.Fragment>
+        {this.state.isFollow ? (
+          <button className="following" onClick={this.following}>팔로우</button>
+        ) : (
+          <button className="following">팔로잉</button>
+        )}
+
+             
+<div className="profile">
+          <p id="otherId">rin3583</p>
+          <p id="otherEmail">@user.email.com</p>
+        <div className="followers">
         <a>0 팔로워</a>
         <a>0 팔로잉</a>
-        {this.state.isFollow ? (
-          <button onClick={this.following}>팔로우</button>
-        ) : (
-          <button>팔로잉</button>
-        )}
+        </div>
+        </div>
 
       </React.Fragment>
     );
