@@ -26,7 +26,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-button {
+
+.userContainer > button {
   width: 120px;
   height: 40px;
   margin: 13px 0px 0px 690px;
@@ -38,8 +39,7 @@ button {
   font-weight: bold;
   outline: none;
 }
-
-button:hover {
+.userContainer > button:hover {
   background: #4bb4ff;
   color: white;
 }

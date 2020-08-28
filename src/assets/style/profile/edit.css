@@ -1,0 +1,73 @@
+.modalLayout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: 45px;
+  transform: translate(-50%, -50%);
+  width: 530px;
+  height: 500px;
+  border: 2px solid hsl(0, 0%, 60%);
+  border-radius: 13px;
+  background-color: white;
+}
+
+.icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -70px 0px 0px 235px;
+  border: none;
+  border-radius: 50%;
+  background: #1fa1f3;
+}
+
+.closeBtn {
+  margin: 20px 0px 0px 400px;
+  color: #1fa1f3;
+  border: none;
+  background: white;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+
+.title {
+  margin: 15px 0px -10px 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.content {
+  margin: 10px 0px 0px 5px;
+  font-size: 15px;
+  font-weight: 200;
+  color: #697785;
+}
+
+
+.upload {
+  color: #1fa1f3;
+  background: white;
+  margin: 30px 0px 0px 215px;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 75px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+}
+
+.upload:hover {
+  color: white;
+  background: #1fa1f3;
+}
