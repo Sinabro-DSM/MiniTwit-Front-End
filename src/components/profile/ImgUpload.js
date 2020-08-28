@@ -55,7 +55,7 @@ render() {
   }
   return (
     <React.Fragment>
-      <div className="profileImg">
+      <div className="changeProfile">
       {profile}
       </div>
       <form
