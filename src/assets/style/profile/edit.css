@@ -35,7 +35,7 @@
   color: #1fa1f3;
   border: none;
   background: white;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   outline: none;
 }
@@ -53,16 +53,6 @@
   color: #697785;
 }
 
-.profileImg {
-  width: 180px;
-  height: 180px;
-  border: 1px solid #9a9a9a;
-  border-radius: 50%;
-  margin: 40px 0px 0px 160px;
-  background-image: url(../../img/profile.PNG);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .upload {
   color: #1fa1f3;
