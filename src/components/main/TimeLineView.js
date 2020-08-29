@@ -13,7 +13,7 @@ class TimeLineView extends React.Component {
     };
     
     config = {
-        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRmOTg0NGFhMmZmMjA1M2E5NjAxMjYzMTIxOWRiNWI5IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg1NTAxMzUsImV4cCI6MTU5ODU1MTkzNX0.tNvNE8qhdNEefeSg1vqqc5buZaaeyGxQxunPgDagcoI'}
+        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2ODc2NTYsImV4cCI6MTU5ODY4OTQ1Nn0.QykYkrX6Kn83b_3Xvz4wNo0Ek0zisSEREMJyjTPwuuo'}
     }
 
     handleScroll = () => {
@@ -70,10 +70,12 @@ class TimeLineView extends React.Component {
                   id={post.id}
                   email={post.User.email}
                   content={post.content}
+                  isMine={post.isMine}
+                  isLike={post.isLike}
                   date={post.createdAt}
                   nickname={post.User.nickname}
                   userImg={post.User.img}
-                  uploadImg={post.Images.img}
+                  uploadImg={post.Images}
                   ></PostItem>
               ))}
             </div>
