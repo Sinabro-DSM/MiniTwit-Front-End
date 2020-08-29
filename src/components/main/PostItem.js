@@ -8,7 +8,8 @@ import unlike from "../../assets/img/unlike.png"
 const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadImg = []}) => {
     let deleteButtonStyle = "";
     let likeButton = "";
-    
+    let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
+
     if(isMine === false)
     {
         deleteButtonStyle = "none"
@@ -24,7 +25,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     }
 
     const config = {
-        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2MjYwMjgsImV4cCI6MTU5ODYyNzgyOH0.lXtrjrFzpgAKZfCqAGLd33dlATrNEQJHD3wwGw2di0M'}
+        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2ODc2NTYsImV4cCI6MTU5ODY4OTQ1Nn0.QykYkrX6Kn83b_3Xvz4wNo0Ek0zisSEREMJyjTPwuuo'}
     }
 
     const onRemove = async () => {
@@ -53,7 +54,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
 
     return (
         <div className="postItem">
-            <img src={userImg}></img>
+            <img src={src + userImg}></img>
             <div className="contentsContainer">
                 <div className="infoBox">
                     <div className="infoInnerBox">
@@ -67,7 +68,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
                 </div>
                 <div className="contentsBox">
                     <p>{content}</p>
-                    <img src={uploadImg}></img>
+                    <div>{uploadImg.map((Img) => (<img key={Img.id} src={src + Img.img} style={{width: "150px", height : "150px"}}></img>))}</div>
                         <img className="likeButton" src={likeButton} onClick={onSubmitLike}></img>
                 </div>
             </div>
