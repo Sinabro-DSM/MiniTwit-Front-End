@@ -3,12 +3,13 @@ import "../../assets/style/profile/profile.css";
 import ProfileEdit from "./ProfileEdit";
 import Follow from '../follow/Follow';
 
-function OtherUser(id) {
+function OtherUser(props) {
+    const {id} = props.match.params
+    console.log(id);
     return (
       <div className="userContainer">
         <div className="background"></div>
-        <div className="otherProfile"></div>
-        <Follow />
+        <Follow id={id} />
       </div>
     );
   }

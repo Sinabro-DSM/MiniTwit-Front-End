@@ -29,3 +29,8 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+#otherEmail {
+  color: hsl(0, 0%, 0%, 0.55);
+  margin: 0px 0px 10px 25px;
+}

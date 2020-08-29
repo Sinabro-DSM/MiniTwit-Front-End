@@ -17,7 +17,7 @@ function App() {
         <Switch>
          <Route  path="/users" component={User}/>
           <Route exact path="/search" component={Search}/>
-          <Route path="/otherProfile" component={OtherUser}/>
+          <Route path="/otherUser/:id" component={OtherUser}/>
         </Switch>
       </Router>
     </div>
