@@ -4,6 +4,7 @@ import PostItem from './PostItem';
 import axios from 'axios'
 
 class TimeLineView extends React.Component {
+    timelineUrl = "http://15.164.50.105:3000/timeline"
     state = {
       isLoading: true,
       loading : true,
@@ -11,9 +12,9 @@ class TimeLineView extends React.Component {
       posts: [],
       params : 1
     };
-    
+    token = localStorage.getItem('accessToken')
     config = {
-        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2ODc2NTYsImV4cCI6MTU5ODY4OTQ1Nn0.QykYkrX6Kn83b_3Xvz4wNo0Ek0zisSEREMJyjTPwuuo'}
+        headers : {'access-token' : this.token}
     }
 
     handleScroll = () => {
@@ -29,7 +30,7 @@ class TimeLineView extends React.Component {
        };
 
        getMorePosts = () => {
-        axios.get("http://52.78.186.198:3000/timeline/" + this.state.params, this.config)
+        axios.get(this.timelineUrl + "/" + this.state.params, this.config)
           .then((response) => {
             const fetchedData = response.data.timelines; 
             const mergedData = this.state.posts.concat(...fetchedData);
@@ -38,7 +39,7 @@ class TimeLineView extends React.Component {
       };
       
     async getPosts() {
-       const res = await axios.get("http://52.78.186.198:3000/timeline/" + this.state.params, this.config);
+       const res = await axios.get(this.timelineUrl + "/" + this.state.params, this.config);
         this.setState({isLoading : false})
         console.log(this.state.params)
         console.log(res)

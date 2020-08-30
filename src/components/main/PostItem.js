@@ -9,7 +9,8 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     let deleteButtonStyle = "";
     let likeButton = "";
     let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
-
+    const timelineUrl = "http://15.164.50.105:3000/timeline"
+    const likeUrl = "http://15.164.50.105:3000/timeline/like/"
     if(isMine === false)
     {
         deleteButtonStyle = "none"
@@ -24,12 +25,14 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
         likeButton = unlike;
     }
 
+    let token = localStorage.getItem('accessToken')
+
     const config = {
-        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2ODc2NTYsImV4cCI6MTU5ODY4OTQ1Nn0.QykYkrX6Kn83b_3Xvz4wNo0Ek0zisSEREMJyjTPwuuo'}
+        headers : {'access-token' : token}
     }
 
     const onRemove = async () => {
-        await axios.delete("http://52.78.186.198:3000/timeline/" + id, config)
+        await axios.delete( timelineUrl + "/" + id, config)
         setTimeout(function() {
             window.location.reload();
           }, 300);
@@ -38,14 +41,14 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     const onSubmitLike = () => {
         if(isLike === false)
         {
-            axios.get("http://52.78.186.198:3000/timeline/like/" + id, config)
+            axios.get(likeUrl + id, config)
             setTimeout(function() {
                 window.location.reload();
               }, 300);
         }
         else
         {
-            axios.delete("http://52.78.186.198:3000/timeline/like/" + id, config)
+            axios.delete(likeUrl + id, config)
             setTimeout(function() {
                 window.location.reload();
               }, 300);
@@ -61,14 +64,14 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
                         <h3>{nickname}</h3>
                         <div className="userNameBox">
                             <span>{email}</span>
-                            <span>{date}</span>
+                        <span>{date.slice(0,10)} {date.slice(11,19)}</span>
                         </div>
                     </div>
                         <button style={{display : deleteButtonStyle}} onClick={onRemove}>X</button>
                 </div>
                 <div className="contentsBox">
                     <p>{content}</p>
-                    <div>{uploadImg.map((Img) => (<img key={Img.id} src={src + Img.img} style={{width: "150px", height : "150px"}}></img>))}</div>
+                    <div>{uploadImg.map((Img) => (<img key={Img.id} src={src + Img.img}></img>))}</div>
                         <img className="likeButton" src={likeButton} onClick={onSubmitLike}></img>
                 </div>
             </div>
