@@ -24,8 +24,10 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
         likeButton = unlike;
     }
 
+    let token = localStorage.getItem('accessToken')
+
     const config = {
-        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2ODc2NTYsImV4cCI6MTU5ODY4OTQ1Nn0.QykYkrX6Kn83b_3Xvz4wNo0Ek0zisSEREMJyjTPwuuo'}
+        headers : {'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg3OTAwNzYsImV4cCI6MTU5ODc5MTg3Nn0.TP7D8-S4tdBmcQcFzid9bS1tOH8PIn1cF9y9SIxRHHQ'}
     }
 
     const onRemove = async () => {
@@ -68,7 +70,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
                 </div>
                 <div className="contentsBox">
                     <p>{content}</p>
-                    <div>{uploadImg.map((Img) => (<img key={Img.id} src={src + Img.img} style={{width: "150px", height : "150px"}}></img>))}</div>
+                    <div>{uploadImg.map((Img) => (<img key={Img.id} src={src + Img.img}></img>))}</div>
                         <img className="likeButton" src={likeButton} onClick={onSubmitLike}></img>
                 </div>
             </div>
