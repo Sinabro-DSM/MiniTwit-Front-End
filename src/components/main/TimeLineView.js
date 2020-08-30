@@ -4,7 +4,7 @@ import PostItem from './PostItem';
 import axios from 'axios'
 
 class TimeLineView extends React.Component {
-    timelineUrl = "http://15.164.50.105:3000/timeline"
+    timelineUrl = "http://15.164.225.147:3000/timeline"
     state = {
       isLoading: true,
       loading : true,

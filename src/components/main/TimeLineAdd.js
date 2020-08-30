@@ -8,7 +8,7 @@ const TimeLineAdd = () => {
     
     const onSubmitPost = () =>
     {
-        const timelineUrl = "http://15.164.50.105:3000/timeline"
+        const timelineUrl = "http://15.164.225.147:3000/timeline"
 
         const content = document.getElementsByName('content')[0].value.trim();
         const file = document.getElementById("file").files;
