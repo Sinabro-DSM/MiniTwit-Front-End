@@ -5,11 +5,14 @@ import axios from 'axios'
 import PostItem from './PostItem';
 
 const TimeLineAdd = () => {
+    
     const onSubmitPost = () =>
     {
+        const timelineUrl = "http://15.164.50.105:3000/timeline"
+
         const content = document.getElementsByName('content')[0].value.trim();
         const file = document.getElementById("file").files;
-        
+        let token = localStorage.getItem('accessToken')
         console.log(file)
 
         if(content === '' && file.length === 0)
@@ -26,10 +29,11 @@ const TimeLineAdd = () => {
             };
 
             const config = {
-                headers : { 'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3MzE1Y2Y1NjBhYWQ5ZjRiYzFkMWQxNzEwNzkyNjkwIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTg2ODc2NTYsImV4cCI6MTU5ODY4OTQ1Nn0.QykYkrX6Kn83b_3Xvz4wNo0Ek0zisSEREMJyjTPwuuo',
+                headers : { 'access-token' : token,
                 'Content-type': 'application/x-www-form-urlencoded'
                 }
             }
+            console.log(token)
             
             let form = new FormData()
             form.append('content', formdata.content)
@@ -38,7 +42,7 @@ const TimeLineAdd = () => {
                 let uploadFile = file[i];
                 form.append('file', uploadFile)
             }
-            const res = axios.post('http://52.78.186.198:3000/timeline', form, config)
+            const res = axios.post(timelineUrl, form, config)
             .then((res) => {
                 console.log(res)
                 setTimeout(function() {
@@ -52,13 +56,13 @@ const TimeLineAdd = () => {
         <div className="postAddContainer">
             <div className="addPostInput">
                 <img src={profile}></img>
-                <form action="http://54.180.97.98:3000/timeline" method="post" enctype="multipart/form-data">
+                <form action="http://15.164.50.105:3000/timeline" method="post" enctype="multipart/form-data">
                     <input placeholder="무슨 일이 일어나고 있나요?" name="content" maxLength="140"></input>
                 </form>
                 
             </div>
             <div className="addPost">
-            <form action="http://54.180.97.98:3000/timeline" method="post" enctype="multipart/form-data">
+            <form action="http://15.164.50.105:3000/timeline" method="post" enctype="multipart/form-data">
                 <input multiple="multiple" id="file" type="file" name="file"/>
             </form>
                 <button onClick={onSubmitPost}>트윗</button>
