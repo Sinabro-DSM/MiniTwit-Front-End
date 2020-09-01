@@ -5,7 +5,6 @@ import Follow from '../follow/Follow';
 
 function OtherUser(props) {
     const {id} = props.match.params
-    console.log(id);
     return (
       <div className="userContainer">
         <div className="background"></div>
