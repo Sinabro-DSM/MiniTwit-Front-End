@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import axios from 'axios'
 import profile from '../../assets/img/profile.PNG'
 import '../../assets/style/main/main.css'
@@ -9,8 +9,9 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     let deleteButtonStyle = "";
     let likeButton = "";
     let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
-    const timelineUrl = "http://15.164.50.105:3000/timeline"
-    const likeUrl = "http://15.164.50.105:3000/timeline/like/"
+    const timelineUrl = "http://13.209.47.153:3000/timeline"
+    const likeUrl = "http://13.209.47.153:3000/timeline/like/"
+    
     if(isMine === false)
     {
         deleteButtonStyle = "none"
@@ -32,7 +33,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     }
 
     const onRemove = async () => {
-        await axios.delete( timelineUrl + "/" + id, config)
+        await axios.delete(timelineUrl + "/" + id, config)
         setTimeout(function() {
             window.location.reload();
           }, 300);
@@ -64,7 +65,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
                         <h3>{nickname}</h3>
                         <div className="userNameBox">
                             <span>{email}</span>
-                        <span>{date.slice(0,10)} {date.slice(11,19)}</span>
+                        <span>{date}</span>
                         </div>
                     </div>
                         <button style={{display : deleteButtonStyle}} onClick={onRemove}>X</button>

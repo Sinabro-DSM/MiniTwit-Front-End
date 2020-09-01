@@ -4,7 +4,10 @@ import PostItem from './PostItem';
 import axios from 'axios'
 
 class TimeLineView extends React.Component {
-    timelineUrl = "http://15.164.50.105:3000/timeline"
+    scrollHeight = document.documentElement.scrollHeight;
+    scrollTop = document.documentElement.scrollTop;
+    clientHeight = document.documentElement.clientHeight;
+    timelineUrl = "http://13.209.47.153:3000/timeline"
     state = {
       isLoading: true,
       loading : true,
@@ -18,23 +21,30 @@ class TimeLineView extends React.Component {
     }
 
     handleScroll = () => {
-        const scrollHeight = document.documentElement.scrollHeight;
-        const scrollTop = document.documentElement.scrollTop;
-        const clientHeight = document.documentElement.clientHeight;
-        if (scrollTop + clientHeight >= scrollHeight && this.state.isLoading === false) {
-          this.getMorePosts();
+        
+        if (this.scrollTop + this.clientHeight >= this.scrollHeight && this.state.isLoading === false) {
+            console.log(this.state.posts)
+            if(this.state.posts.length >= 10)
+            {
+                this.getMorePosts(); 
+            }
+            
           this.setState(() => {
             return {params: this.state.params + 1};
           });
         }
        };
-
+       
        getMorePosts = () => {
         axios.get(this.timelineUrl + "/" + this.state.params, this.config)
           .then((response) => {
             const fetchedData = response.data.timelines; 
-            const mergedData = this.state.posts.concat(...fetchedData);
-            this.setState({posts : mergedData});
+            if(this.scrollTop + this.clientHeight >= this.scrollHeight)
+            {
+                const mergedData = this.state.posts.concat(...fetchedData);
+                this.setState({posts : mergedData}); 
+            }
+            
         });
       };
       
@@ -49,13 +59,13 @@ class TimeLineView extends React.Component {
     };
     
     async componentDidMount() {
-        this.getPosts();
+        this.getPosts()
         window.addEventListener("scroll", this.handleScroll);
-          return () => {
-              window.removeEventListener("scroll", this.handleScroll);
-          };
+        return () => {
+            window.removeEventListener("scroll", this.handleScroll);
+        };
       }
-  
+      
     render() {
       const { isLoading, posts } = this.state;
       return (
