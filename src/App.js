@@ -1,24 +1,22 @@
+import React from 'react';
+import SignUp from './components/signUp/SignUp'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+} from "react-router-dom";
+import SignUpCheck from './components/signUp/SignUpCheck';
+import SignUpSuccess from './components/signUp/SignUpSuccess';
 
-import React from "react";
-import Header from "./components/header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Search from './components/profile/Search';
-import User from "./components/profile/User";
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
-function App() {
-  return (
-    <div>
-      <Sidebar/>
-      <Router>
-        
-        <Switch>
-          
-        <Route path="/" component={Header}/>     
-        <Route exact path="/users" component={User}/>
-          <Route path="/search" component={Search}/>
-        </Switch>
-      </Router>
-    </div>
-  );
+const App = () => {
+  return(
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={SignUp}></Route>
+        <Route path="/SignUpCheck" component={SignUpCheck}></Route>
+        <Route path="/SignUpSuccess" component={SignUpSuccess}></Route>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 export default App;
