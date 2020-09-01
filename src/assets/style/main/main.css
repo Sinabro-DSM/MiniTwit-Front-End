@@ -1,0 +1,126 @@
+.postAddContainer
+{
+    border-bottom: 1px solid #70707031;
+    border-right: 1px solid #70707031;
+    width: 830px;
+    margin-left: 500px;
+}
+
+.addPostInput
+{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.addPostInput > img,.postItem > img
+{
+    width: 38px;
+    height: 38px;
+    margin-left: 20px;
+    border: 1px solid black;
+    border-radius: 99px;
+}
+
+.addPostInput > form  > input
+{
+    width: 100%;
+    height: 50px;
+    border: none;
+    margin-left: 20px;
+}
+
+.addPost
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px 10px 10px;
+    border-bottom: 1px solid #70707031;
+}
+
+.addPost > button
+{
+    width: 60px;
+    height: 32px;
+    background-color: #6FBEF7;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+.postItem {
+    margin-left: 500px;
+    width: 830px;
+    border-bottom : 1px solid #70707031;
+    border-right: 1px solid #70707031;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contentsContainer
+{
+    width: 100%;
+}
+
+.infoBox
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoInnerBox 
+{
+    display: flex;
+    align-items: center;
+}
+
+.infoBox > button
+{
+    border: none;
+    font-size: 17px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.userNameBox {
+    display: flex;
+    align-items: center;
+}
+
+.infoInnerBox > h3, .userNameBox > span
+{
+    margin: 10px 0px 0px 15px;
+}
+
+.userNameBox > span
+{
+    color: #707070f8;
+}
+
+.contentsBox 
+{
+   margin: 0px 0px 0px 15px;
+}
+.contentsBox > img
+{
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+}
+
+.likeButton
+{
+    float: right;
+    cursor: pointer;
+}
+
+.contentsBox > div > img
+{
+    width: 300px;
+    height: 250px;
+    margin-right: 10px;
+}
