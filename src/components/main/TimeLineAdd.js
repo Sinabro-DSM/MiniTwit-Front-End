@@ -1,14 +1,13 @@
-import React,{useState, useCallback} from 'react';
+import React from 'react';
 import profile from '../../assets/img/profile.PNG'
 import '../../assets/style/main/main.css'
 import axios from 'axios'
-import PostItem from './PostItem';
 
 const TimeLineAdd = () => {
     
     const onSubmitPost = () =>
     {
-        const timelineUrl = "http://15.164.225.147:3000/timeline"
+        const timelineUrl = "http://13.209.47.153:3000/timeline"
 
         const content = document.getElementsByName('content')[0].value.trim();
         const file = document.getElementById("file").files;
