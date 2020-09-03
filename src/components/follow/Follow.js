@@ -1,6 +1,6 @@
 import React, { useState, Component } from "react";
 import axios from 'axios';
-import UserFeed from '../profile/UserFeed';
+import OtherUserFeed from '../profile/OtherUserFeed';
 import "../../assets/style/follow/follow.css";
 
 class Follow extends Component {
@@ -86,7 +86,7 @@ class Follow extends Component {
 
         <div>
           {viewFeed.map((view) => (
-            <UserFeed
+            <OtherUserFeed
               id = {view.id}
               key={view.id} 
               user={view.userId}

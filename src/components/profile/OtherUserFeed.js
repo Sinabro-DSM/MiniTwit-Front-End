@@ -1,10 +1,10 @@
 import React from "react";
-import '../../assets/style/profile/userFeed.css';
+import '../../assets/style/profile/OtherUserFeed.css';
 import like from '../../assets/img/like.png'
 import unlike from '../../assets/img/unlike.png';   
 import axios from "axios";
 
-function UserFeed({id, isLike, user, email, content, userImg, imges=[], nickname }) {
+function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nickname }) {
     const fixUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
     const likeUrl = "http://54.180.103.146:3000/timeline/like/";
     let likeButton = "";
@@ -57,4 +57,4 @@ function UserFeed({id, isLike, user, email, content, userImg, imges=[], nickname
     );
 }
 
-export default UserFeed;
+export default OtherUserFeed;
