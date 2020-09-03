@@ -4,6 +4,7 @@ import like from '../../assets/img/like.png';
 import unlike from '../../assets/img/unlike.png';
 import axios from 'axios';
 
+
 function ProfileFeed({id, email, name, imges, isLike, profileImg, content}) {
     let likeBtn = "";
     const imgUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
