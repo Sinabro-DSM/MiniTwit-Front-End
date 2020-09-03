@@ -25,9 +25,15 @@ function UserFeed({id, isLike, user, email, content, userImg, imges=[], nickname
     const onLike = () => {
         if(isLike === false) {
             axios.get(likeUrl + id, config);
+           setTimeout(function() {
+               window.location.reload();
+           }, 200);
         }
         else {
             axios.delete(likeUrl + id, config);
+            setTimeout(function() {
+                window.location.reload();
+            }, 200);
         }
     }
 

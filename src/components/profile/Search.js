@@ -23,7 +23,7 @@ class Search extends Component {
   
   async userList() {
     const res = await axios.get(
-      "http://13.209.47.153:3000/profile/search/" + this.state.value
+      "http://54.180.103.146:3000/profile/search/" + this.state.value
     );
     this.setState({ users: res.data.users });
   }
