@@ -8,15 +8,27 @@ import {
 import SignUpCheck from './components/signUp/SignUpCheck';
 import SignUpSuccess from './components/signUp/SignUpSuccess';
 
-const App = () => {
-  return(
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={SignUp}></Route>
-        <Route path="/SignUpCheck" component={SignUpCheck}></Route>
-        <Route path="/SignUpSuccess" component={SignUpSuccess}></Route>
-      </Switch>
-    </BrowserRouter>
   )
+import Header from "./components/header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Search from './components/profile/Search';
+import User from "./components/profile/User";
+import OtherUser from './components/profile/OtherUser';
+
+function App() {
+  return (
+    <div>
+      <Sidebar/>
+      <Header/>
+      <Router>
+        
+        <Switch>
+         <Route  path="/users" component={User}/>
+          <Route exact path="/search" component={Search}/>
+          <Route path="/otherProfile" component={OtherUser}/>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 export default App;
