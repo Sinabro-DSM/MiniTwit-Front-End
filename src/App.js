@@ -1,14 +1,14 @@
 import React from 'react';
 import SignUp from './components/signUp/SignUp'
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 import SignUpCheck from './components/signUp/SignUpCheck';
 import SignUpSuccess from './components/signUp/SignUpSuccess';
 
-  )
+
 import Header from "./components/header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Search from './components/profile/Search';
