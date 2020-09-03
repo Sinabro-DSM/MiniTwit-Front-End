@@ -17,6 +17,7 @@ function ProfileFeed({id, email, name, imges, isLike, profileImg, content}) {
     if(isLike === false) {
         likeBtn = unlike;
     }
+    
     else {
         likeBtn = like;
     }
