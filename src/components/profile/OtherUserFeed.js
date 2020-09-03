@@ -19,7 +19,7 @@ function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nic
     const config = {
         headers: {
             'access-token':
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MDYwMDgyLCJleHAiOjE1OTkxNDY0ODJ9.ogkGqcypBK6gQQE_19zfAKy2wH6OpgiNtiJNWe2IqIo",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTUwNzAyLCJleHAiOjE1OTkyMzcxMDJ9.Gvoy4TLF-EvtYdNYqrUx1kd7qsWxjehZq1YA9jdmbwQ",
         }
     }
     const onLike = () => {
