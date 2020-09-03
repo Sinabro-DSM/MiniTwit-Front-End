@@ -8,10 +8,10 @@ import axios from 'axios';
 function ProfileFeed({id, email, name, imges, isLike, profileImg, content}) {
     let likeBtn = "";
     const imgUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
-    const urlLike = "http://54.180.103.146:3000/timeline/like/";
+    const urlLike = "http://13.209.67.14:3000/timeline/like/";
     const config = {
         headers: {
-            'access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTQxNjUwLCJleHAiOjE1OTkyMjgwNTB9.SObMyr7J5LqI2H5zPeM82xqTwG_SlQQhmZVYOX3HxZ8",
+            'access-token':  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTUzMzMyLCJleHAiOjE1OTkyMzk3MzJ9.NoE0Cr7TIz6IUTBDKJ9fDHx4-lnMxQyzmq0ejTd34eE",
         }
     }
     if(isLike === false) {
@@ -37,7 +37,7 @@ function ProfileFeed({id, email, name, imges, isLike, profileImg, content}) {
         }
     }
     const remove = () => {
-        axios.delete("http://54.180.103.146:3000/timeline/" + id, config);
+        axios.delete("http://13.209.67.14:3000/timeline/" + id, config);
         setTimeout(function() {
             window.location.reload();
         }, 200);

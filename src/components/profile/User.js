@@ -25,7 +25,7 @@ class User extends Component {
     }
   }
   async componentDidMount() {
-    const res = await axios.get("http://54.180.103.146:3000/profile/", this.config);
+    const res = await axios.get("http://13.209.67.14:3000/profile/", this.config);
     this.setState({ 
       profileFeed: res.data.profile.Timelines,
       profileName: res.data.profile.nickname,

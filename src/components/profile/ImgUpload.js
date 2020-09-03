@@ -14,14 +14,14 @@ state = {
   const config = {
     headers: {
       "access-token":
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk4NjIzOTM3LCJleHAiOjE1OTg2MjU3Mzd9.tREop1W1-o5yHMDWSGXAoQTmiRhMVPRliyemB-RLn4c",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTUzMzMyLCJleHAiOjE1OTkyMzk3MzJ9.NoE0Cr7TIz6IUTBDKJ9fDHx4-lnMxQyzmq0ejTd34eE",
       "Content-type": "application/x-www-form-urlencoded",
     },
   };
   let form = new FormData();
   form.append("file", file.files[0]);
 
-const res = axios.put("http://52.78.186.198:3000/profile", form, config)
+const res = axios.put("http://13.209.67.14:3000/profile/", form, config)
     .then((response) => {
       console.log(response);
     })
