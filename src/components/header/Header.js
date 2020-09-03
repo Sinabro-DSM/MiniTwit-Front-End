@@ -14,5 +14,4 @@ class Header extends Component {
       </React.Fragment>
     );
   }
-}
 export default Header;

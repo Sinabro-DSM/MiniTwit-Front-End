@@ -17,7 +17,7 @@
   color: white;
 }
 
-.followers > span {
+.followers > a {
   margin: 0px 0px 0px 25px;
   color: hsl(0, 0%, 0%, 0.6);
   font-size: 15px;
@@ -28,9 +28,4 @@
   margin: 20px 0px 0px 30px;
   font-size: 20px;
   font-weight: bold;
-}
-
-#otherEmail {
-  color: hsl(0, 0%, 0%, 0.55);
-  margin: 0px 0px 10px 25px;
 }

@@ -71,11 +71,18 @@
     justify-content: space-between;
 }
 
+.infoInnerBox 
+{
+    display: flex;
+    align-items: center;
+}
+
 .infoBox > button
 {
     border: none;
     font-size: 17px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 
@@ -84,26 +91,36 @@
     align-items: center;
 }
 
-.userNameBox > h3, .userNameBox > span
+.infoInnerBox > h3, .userNameBox > span
 {
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 15px;
 }
 
-.contentsBox > p
+.userNameBox > span
 {
-    margin: 0px 0px 0px 10px;
+    color: #707070f8;
 }
 
 .contentsBox 
 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 10px;
+   margin: 0px 0px 0px 15px;
 }
 .contentsBox > img
 {
     width: 33px;
     height: 33px;
+    margin-right: 10px;
+}
+
+.likeButton
+{
+    float: right;
+    cursor: pointer;
+}
+
+.contentsBox > div > img
+{
+    width: 300px;
+    height: 250px;
     margin-right: 10px;
 }
