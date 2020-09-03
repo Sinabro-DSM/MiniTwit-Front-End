@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../../assets/style/signUp/signUp.css';
-import axios from 'axios'
+import axios from 'axios';
 
 const SignUp = () => {
+
+    let history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+
+    useEffect( () => {
+        console.log({
+            name,
+            email,
+            password
+        });
+    })
+
+    const onChangeName = e =>{
+        setName(e.target.value);
+    };
+
+    const onChangeEmail = e =>{
+        setEmail(e.target.value);
+    };
+
+    const onChangePassword = e =>{
+        setPassword(e.target.value);
+    };
+    
     const onSignUp = async () => {
 
         const email = document.getElementsByName("email")[0].value.trim();
@@ -17,9 +44,20 @@ const SignUp = () => {
         }
         
         console.log(data.email)
-        const res = await axios.post("http://3.34.198.6:3000/user/email/send" , {email: data.email})
-        console.log(res)
+        const res = await axios.post("http://13.209.47.153:3000/user/email/send" , {email: data.email})
+        console.log(res.data)
+        history.push({
+            pathname: "/SignUpCheck",
+            state: {
+                name: name,
+                email: email,
+                password: password,
+                randomNumber: res.data.randomNumber
+            }
+        });
     }
+
+
     return (
         <div className="app">
             <div>
@@ -31,16 +69,16 @@ const SignUp = () => {
                 <div className="inputField">
                     <form>
                         <div className="nameContainer">
-                            <label for="inputName" className="nameLabel">닉네임</label><br></br>
-                            <input type="text" className="inputName" name="name"></input>
+                            <label htmlFor="inputName" className="nameLabel">닉네임</label><br></br>
+                            <input type="text" className="inputName" name="name" value={name} onChange={onChangeName}></input>
                         </div>
                         <div className="idContainer">
-                            <label for="inputId" className="idLabel">이메일</label><br></br>
-                            <input type="email" className="inputId" name="email"></input><br></br>
+                            <label htmlFor="inputId" className="idLabel">이메일</label><br></br>
+                            <input type="email" className="inputId" name="email" value={email} onChange={onChangeEmail}></input><br></br>
                         </div>
                         <div className="pwContainer">
-                            <label for="inputPw" className="pwLabel">비밀번호</label><br></br>
-                            <input type="password" className="inputPw" name="password"></input>
+                            <label htmlFor="inputPw" className="pwLabel">비밀번호</label><br></br>
+                            <input type="password" className="inputPw" name="password" value={password} onChange={onChangePassword}></input>
                         </div>
                     </form>
                 </div>
