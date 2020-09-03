@@ -7,7 +7,7 @@ class TimeLineView extends React.Component {
     scrollHeight = document.documentElement.scrollHeight;
     scrollTop = document.documentElement.scrollTop;
     clientHeight = document.documentElement.clientHeight;
-    timelineUrl = "http://13.209.47.153:3000/timeline"
+    timelineUrl = "http://54.180.103.146:3000/timeline"
     state = {
       isLoading: true,
       loading : true,
@@ -24,10 +24,7 @@ class TimeLineView extends React.Component {
         
         if (this.scrollTop + this.clientHeight >= this.scrollHeight && this.state.isLoading === false) {
             console.log(this.state.posts)
-            if(this.state.posts.length >= 10)
-            {
                 this.getMorePosts(); 
-            }
             
           this.setState(() => {
             return {params: this.state.params + 1};
