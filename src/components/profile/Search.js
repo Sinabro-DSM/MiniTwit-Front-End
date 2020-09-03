@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+  import React, { Component } from "react";
 import "../../assets/style/profile/search.css";
 import UserList from "../profile/UserList";
 import axios from "axios";

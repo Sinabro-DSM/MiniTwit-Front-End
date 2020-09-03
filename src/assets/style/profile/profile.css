@@ -12,7 +12,7 @@
 }
 
 .profile {
-  height: 126px;
+  height: 200px;
 }
 
 .profilePicture {
@@ -44,7 +44,7 @@
   background: #4bb4ff;
   color: white;
 }
-#name {
+#id {
   margin: 35px 0px 0px 30px;
   font-size: 20px;
   font-weight: bolder;
@@ -55,7 +55,7 @@
   margin: 0px 0px 10px 25px;
 }
 
-.follow > span {
+.profile > a {
   margin: 0px 0px 0px 25px;
   color: hsl(0, 0%, 0%, 0.6);
   font-size: 15px;

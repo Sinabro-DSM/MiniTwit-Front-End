@@ -4,65 +4,49 @@ import '../../assets/style/main/main.css'
 import axios from 'axios'
 
 const TimeLineAdd = () => {
-    
+
     const onSubmitPost = () =>
     {
-        const timelineUrl = "http://13.209.47.153:3000/timeline"
-
         const content = document.getElementsByName('content')[0].value.trim();
-        const file = document.getElementById("file").files;
-        let token = localStorage.getItem('accessToken')
+        const file = document.getElementById("file");
+
+        console.log(content)
         console.log(file)
-
-        if(content === '' && file.length === 0)
+        if(content === "")
         {
-            alert('글이나 사진을 업로드해보세요!')
+            alert('내용을 입력하세요!')
         }
 
-        else
+        const formdata = 
         {
-            const formdata = 
-            {
-                content : content,
-                file : file
-            };
+            content : content,
+            file : file
+        };
 
-            const config = {
-                headers : { 'access-token' : token,
-                'Content-type': 'application/x-www-form-urlencoded'
-                }
+        const config = {
+            headers : { 'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2NWZjZGJiNTZkNTE0NmQ4NjNmMTNiNTViMzQ3YjIxIiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZ21haWwuY29tIiwibmlja25hbWUiOiJ5c2IiLCJpYXQiOjE1OTgyMDgzNjMsImV4cCI6MTU5ODIxMDE2M30.U1TIGaYo14fng49OJYrbPXS3BFQC8aRaADxgVMgYSfM',
+            'Content-type': 'application/x-www-form-urlencoded'
             }
-            console.log(token)
-            
-            let form = new FormData()
-            form.append('content', formdata.content)
-            for(let i = 0; i < 4; i++)
-            {
-                let uploadFile = file[i];
-                form.append('file', uploadFile)
-            }
-            const res = axios.post(timelineUrl, form, config)
-            .then((res) => {
-                console.log(res)
-                setTimeout(function() {
-                    window.location.reload();
-                  }, 300);
-            })
         }
+        
+        let form = new FormData()
+        form.append('content', formdata.content)
+        form.append('file',file.files[0])
+        axios.post('http://54.180.97.98:3000/timeline', form, config)
     }
 
     return (
         <div className="postAddContainer">
             <div className="addPostInput">
                 <img src={profile}></img>
-                <form action="http://15.164.50.105:3000/timeline" method="post" enctype="multipart/form-data">
-                    <input placeholder="무슨 일이 일어나고 있나요?" name="content" maxLength="140"></input>
+                <form action="http://54.180.97.98:3000/timeline" method="post" enctype="multipart/form-data">
+                    <input placeholder="무슨 일이 일어나고 있나요?" name="content"></input>
                 </form>
                 
             </div>
             <div className="addPost">
-            <form action="http://15.164.50.105:3000/timeline" method="post" enctype="multipart/form-data">
-                <input multiple="multiple" id="file" type="file" name="file"/>
+            <form action="http://54.180.97.98:3000/timeline" method="post" enctype="multipart/form-data">
+                <input multiple="multiple" id="file" type="file" name="file" />
             </form>
                 <button onClick={onSubmitPost}>트윗</button>
             </div>
