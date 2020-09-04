@@ -1,9 +1,10 @@
 import React from 'react';
 import './../../assets/style/firstView/firstView.css';
 import  axios from 'axios';
+import { Link, useHistory} from 'react-router-dom'
 
 const FirstView = () => {
-
+    let history = History();
     const onSubmitLogin = () => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -14,6 +15,9 @@ const FirstView = () => {
             console.log(res);
             localStorage.setItem('accessToken', res.data.accessToken);
             localStorage.setItem('refreshToken', res.data.refreshToken);
+            history.push({
+                pathname: "/timeLine"
+            })
         }).catch((error) => {
             console.log(error);
         })
@@ -41,8 +45,8 @@ const FirstView = () => {
                     <div className="introContainer">
                         <h1>지금 전 세계에서 무슨 일<br></br>이 일어나고 있는지 알아<br></br>보세요</h1>
                         <p>오늘 트위터에 가입하세요.</p>
-                        <button className="signUp">가입하기</button>
-                        <button className="logIn">로그인</button>
+                        <Link to="/signUp" style={{textDecoration : "none"}}><button className="signUp">가입하기</button></Link>
+                        <Link to="/login"><button className="logIn">로그인</button></Link>
                     </div>
 
             </article>

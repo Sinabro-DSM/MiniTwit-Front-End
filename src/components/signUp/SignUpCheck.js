@@ -47,11 +47,11 @@ const SignUpCheck = () => {
         console.log(number);
         console.log(randomNumber);
         if(number == randomNumber){
-                axios.post("http://13.209.47.153:3000/user/register", data)
+                axios.post("http://13.209.67.14:3000/user/register", data)
             .then((res) => {
                 console.log(res);
                 history.push({
-                    pathname: "/SignUpSuccess"
+                    pathname: "/signUpSuccess"
                 })
             }).catch((error) => {
                 console.log(error);

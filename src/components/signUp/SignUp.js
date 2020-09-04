@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory,Link } from 'react-router-dom';
 import '../../assets/style/signUp/signUp.css';
 import axios from 'axios';
+
 
 const SignUp = () => {
 
@@ -44,10 +45,10 @@ const SignUp = () => {
         }
         
         console.log(data.email)
-        const res = await axios.post("http://13.209.47.153:3000/user/email/send" , {email: data.email})
+        const res = await axios.post("http://13.209.67.14:3000/user/email/send" , {email: data.email})
         console.log(res.data)
         history.push({
-            pathname: "/SignUpCheck",
+            pathname: "/signUpCheck",
             state: {
                 name: name,
                 email: email,
@@ -62,10 +63,10 @@ const SignUp = () => {
         <div className="app">
             <div>
                 <div className="headIcon"></div>
-                <header className="loginHeader">
+                <div className="loginHeaderBox">
                     <p className="title">계정을 생성하세요</p>
                     <button className="nextBtn" onClick={onSignUp}>다음</button>
-                </header>
+                </div>
                 <div className="inputField">
                     <form>
                         <div className="nameContainer">
@@ -82,7 +83,7 @@ const SignUp = () => {
                         </div>
                     </form>
                 </div>
-                    <p className="logIn">트위터 로그인하기</p>
+                    <Link to="/login" style={{textDecoration : "none"}}><p className="logIn">트위터 로그인하기</p></Link>
             </div>
         </div>
     );
