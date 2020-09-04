@@ -41,7 +41,7 @@ const Login = () => {
                             <label for="inputId" className="idLabel">이메일</label><br></br>
                             <input type="email" className="inputId" name="email"></input><br></br>
                         </div>
-                        <div className="blank"></div>
+                       
                         <div className="pwContainer">
                             <label for="inputPw" className="pwLabel">비밀번호</label><br></br>
                             <input type="password" className="inputPw" name="password"></input>

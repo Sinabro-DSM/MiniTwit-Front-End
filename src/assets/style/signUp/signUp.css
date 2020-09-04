@@ -1,6 +1,5 @@
 body{
     margin: 0;
-    margin-top: 30px;
 }
 
 .app
@@ -9,11 +8,17 @@ body{
     justify-content: center;
 }
 
-.loginHeader
+.app > div:nth-of-type(1)
+{
+    margin-top: 40px;
+}
+
+.loginHeaderBox
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin : 20px 0px 30px 0px;
 }
 
 .headIcon{
@@ -23,15 +28,11 @@ body{
     border-radius: 50%;
     margin: 0 auto;
 }
-.title{
-    margin-top: 30px;
+.loginHeaderBox > p{
+    margin: 0;
     font-size: 24px;
 }
-.nameContainer{
-    width: 560px;
-    background-color: #F6F8FA;
-    border-bottom: solid 2px #697785;
-}
+
 .nameLabel{
     font-size: 14px;
 }
@@ -39,38 +40,19 @@ body{
 .inputField > form > div
 {
     margin-bottom: 20px;
+    width: 560px;
+    background-color: #F6F8FA;
+    border-bottom: solid 2px #697785;
 }
 
-.inputName{
+.inputName,.inputId,.inputPw{
     width: 550px;
     height: 39px;
     background-color: #F6F8FA;
     border: none;
-}
-.idContainer{
-    width: 560px;
-    background-color: #F6F8FA;
-    border-bottom: solid 2px #697785;
-}
-.inputId{
-    width: 550px;
-    height: 39px;
-    background-color: #F6F8FA;
-    border: none;
-}
-.pwContainer{
-    width: 560px;
-    background-color: #F6F8FA;
-    border-bottom: solid 2px #697785;
 }
 .idLabel{
     font-size: 14px;
-}
-.inputPw{
-    width: 550px;
-    height: 37px;
-    background-color: #F6F8FA;
-    border: none;
 }
 .pwLabel{
     font-size: 14px;
@@ -102,4 +84,10 @@ body{
 .successBox
 {
     text-align: center;
+}
+
+.successBox > img
+{
+    width: 200px;
+    height: 200px;
 }

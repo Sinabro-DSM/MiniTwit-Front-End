@@ -25,7 +25,7 @@ article{
     background-color: white;
     text-align: left;
 }
-.introContainer > button{
+.introContainer > button,.signUp{
     display: block;
     width: 300px;
     height: 40px;
@@ -35,11 +35,12 @@ article{
     border-radius: 20px;
     font-weight: bold;
 }
+
 .signUp{
     background-color: #72CAF9;
     color: white;
 }
-.logIn{
+.logInButton{
     background-color: white;
     color: #72CAF9;
 }
@@ -62,7 +63,7 @@ header > button{
 .headerText{
     margin: 0;
 }
-.inputEmail, .inputPw{
+header > div{
     text-align: left;
     width: 150px;
     background-color: #E4E4E4;
@@ -70,8 +71,9 @@ header > button{
     font-weight: bold;
     margin-right: 12px;
     border-bottom: solid 2px #707070;
+    height: 50px;
 }
-.inputEmail > input, .inputPw > input{
+.inputEmailBox > input, .inputPwBox > input{
     width: 140px;
     border: none;
     background-color: #E4E4E4;

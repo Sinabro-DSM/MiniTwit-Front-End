@@ -63,10 +63,10 @@ const SignUpCheck = () => {
         <div className="app">
             <div>
                 <div className="headIcon"></div>
-                <header className="loginHeader">
+                <div className="loginHeaderBox">
                     <p className="title">메일을 확인해주세요</p>                    
                     <button className="nextBtn" onClick={SendNum}>다음</button>
-                </header>
+                </div>
                 <div className="inputField">
                     <form>
                         <div className="nameContainer">

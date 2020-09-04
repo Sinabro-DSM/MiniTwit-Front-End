@@ -2,8 +2,7 @@
   width: 830px;
   height: 500px;
   border: 1px solid hsla(0, 0%, 44%, 0.3);
-  float: right;
-  margin-right: 185px;
+  margin-left: 500px;
 }
 
 .background {

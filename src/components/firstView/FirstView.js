@@ -4,7 +4,7 @@ import  axios from 'axios';
 import { Link, useHistory} from 'react-router-dom'
 
 const FirstView = () => {
-    let history = History();
+    let history = useHistory();
     const onSubmitLogin = () => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -32,11 +32,11 @@ const FirstView = () => {
             </article>
             <article className="right">
                 <header>
-                    <div className="inputEmail">
+                    <div className="inputEmailBox">
                         <p className="headerText">이메일</p>
                         <input type="email" id="email"></input>
                     </div>
-                    <div className="inputPw">
+                    <div className="inputPwBox">
                         <p className="headerText">비밀번호</p>
                         <input type="password" id="password"></input>
                     </div>
@@ -46,7 +46,7 @@ const FirstView = () => {
                         <h1>지금 전 세계에서 무슨 일<br></br>이 일어나고 있는지 알아<br></br>보세요</h1>
                         <p>오늘 트위터에 가입하세요.</p>
                         <Link to="/signUp" style={{textDecoration : "none"}}><button className="signUp">가입하기</button></Link>
-                        <Link to="/login"><button className="logIn">로그인</button></Link>
+                        <Link to="/login" style={{textDecoration : "none"}}><button className="signUp logInButton">로그인</button></Link>
                     </div>
 
             </article>
