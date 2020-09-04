@@ -3,17 +3,18 @@ import profile from '../../assets/img/profile.PNG'
 import '../../assets/style/main/main.css'
 import axios from 'axios'
 
-const TimeLineAdd = () => {
-    
+const TimeLineAdd = ({userImg}) => {
+    let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
     const onSubmitPost = () =>
     {
-        const timelineUrl = "http://13.209.67.14:3000/timeline"
-
+        const timelineUrl = "http://15.164.213.251:3000/timeline"
+        
         const content = document.getElementsByName('content')[0].value.trim();
         const file = document.getElementById("file").files;
         let token = localStorage.getItem('accessToken')
+        let refreshToken = localStorage.getItem('refreshToken')
         console.log(file)
-
+        
         if(content === '' && file.length === 0)
         {
             alert('글이나 사진을 업로드해보세요!')
@@ -54,14 +55,14 @@ const TimeLineAdd = () => {
     return (
         <div className="postAddContainer">
             <div className="addPostInput">
-                <img src={profile}></img>
-                <form action="http://13.209.67.14:3000/timeline" method="post" enctype="multipart/form-data">
+                <img src={src + userImg}></img>
+                <form action="`${timelineUrl}`" method="post" enctype="multipart/form-data">
                     <input placeholder="무슨 일이 일어나고 있나요?" name="content" maxLength="140"></input>
                 </form>
                 
             </div>
             <div className="addPost">
-            <form action="http://13.209.67.14:3000/timeline" method="post" enctype="multipart/form-data">
+            <form action="`${timelineUrl}`" method="post" enctype="multipart/form-data">
                 <input multiple="multiple" id="file" type="file" name="file"/>
             </form>
                 <button onClick={onSubmitPost}>트윗</button>

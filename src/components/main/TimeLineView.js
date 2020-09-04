@@ -7,17 +7,22 @@ class TimeLineView extends React.Component {
     scrollHeight = document.documentElement.scrollHeight;
     scrollTop = document.documentElement.scrollTop;
     clientHeight = document.documentElement.clientHeight;
-    timelineUrl = "http://13.209.67.14:3000/timeline"
+    timelineUrl = "http://15.164.213.251:3000/"
     state = {
       isLoading: true,
       loading : true,
       setFetching : false,
       posts: [],
+      userImg : "",
       params : 1
     };
     token = localStorage.getItem('accessToken')
+    refreshToken = localStorage.getItem('refreshToken')
     config = {
         headers : {'access-token' : this.token}
+    }
+    refreshConfig = {
+      headers : {'refresh-token' : this.refreshToken}
     }
 
     handleScroll = () => {
@@ -36,7 +41,7 @@ class TimeLineView extends React.Component {
        };
        
        getMorePosts = () => {
-        axios.get(this.timelineUrl + "/" + this.state.params, this.config)
+        axios.get(this.timelineUrl + "timeline/" + this.state.params, this.config)
           .then((response) => {
             const fetchedData = response.data.timelines; 
             if(this.scrollTop + this.clientHeight >= this.scrollHeight)
@@ -44,19 +49,42 @@ class TimeLineView extends React.Component {
                 const mergedData = this.state.posts.concat(...fetchedData);
                 this.setState({posts : mergedData}); 
             }
-            
         });
       };
       
     async getPosts() {
-       const res = await axios.get(this.timelineUrl + "/" + this.state.params, this.config);
+      try {
+        const res = await axios.get(this.timelineUrl + "timeline/" + this.state.params, this.config);
         this.setState({isLoading : false})
-        console.log(this.state.params)
-        console.log(res)
-      
-        this.setState({posts : res.data.timelines})
-        console.log(this.state.posts)
+         console.log(this.state.params)
+         console.log(res)
+         this.setState({posts : res.data.timelines})
+         this.setState({userImg : res.data.userImg})
+         console.log(this.state.posts)
+      }
+      catch(e) {
+        console.log(e);
+        if(e.response.status == 403)
+        {
+          this.refresh();
+        }
+      }
+        
     };
+
+    refresh()
+    {
+          axios.get(this.timelineUrl + "user/refresh",this.refreshConfig)
+          .then((res) => {
+            console.log(res)
+            localStorage.setItem('accessToken', res.data.accessToken);
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+        
+    }
     
     async componentDidMount() {
         this.getPosts()
@@ -67,14 +95,14 @@ class TimeLineView extends React.Component {
       }
       
     render() {
-      const { isLoading, posts } = this.state;
+      const { isLoading, posts, userImg } = this.state;
       return (
         <div>
           {isLoading ? (
             <TimeLineAdd></TimeLineAdd>
           ) : (
             <div>
-                <TimeLineAdd></TimeLineAdd>
+                <TimeLineAdd userImg={userImg}></TimeLineAdd>
               {posts.map((post) => (
                 <PostItem
                   key={post.id}
