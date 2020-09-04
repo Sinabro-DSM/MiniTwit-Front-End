@@ -13,14 +13,12 @@ const Sidebar = () => {
     return (
       <div className="mainContainer">
         <aside className="sidebar">
-          <div className="twitIcon"></div>
+          <Link to="/timeLine"><div className="twitIcon"></div></Link>
           <article className="sideBarIconContainer">
             <div>
               <img src={profile}></img>
 
-           <Router><Link to="/users"> <h3>프로필</h3> </Link></Router>
-
-              <h3>프로필</h3>
+           <Link to="/users" style={{textDecoration : "none"}}> <h3>프로필</h3> </Link>
             </div>
             <div onClick={onClickMoreButton}>
               <img src={threeDot}></img>

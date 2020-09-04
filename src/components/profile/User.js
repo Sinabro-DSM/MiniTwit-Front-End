@@ -4,6 +4,8 @@ import '../profile/ProfileFeed';
 import ProfileEdit from "./ProfileEdit";
 import ProfileFeed from "../profile/ProfileFeed";
 import axios from "axios";
+import Sidebar from "../Sidebar/Sidebar";
+import Header from '../header/Header'
 
 class User extends Component {
   constructor(props) {
@@ -18,10 +20,11 @@ class User extends Component {
       following: 0,
     };
   }
+  token = localStorage.getItem('accessToken')
   config = {
     headers: {
       'access-token': 
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTQxNjUwLCJleHAiOjE1OTkyMjgwNTB9.SObMyr7J5LqI2H5zPeM82xqTwG_SlQQhmZVYOX3HxZ8",
+        this.token
     }
   }
   async componentDidMount() {
@@ -47,6 +50,9 @@ class User extends Component {
     const imgUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
     const { profileFeed, profileName, profileImg, profileEmail, follower, following} = this.state;
     return (
+      <div>
+      <Sidebar></Sidebar>
+      <Header></Header>
       <div className="userContainer">
         <div className="background"></div>
         <button className="editBtn" onClick={this.open}>
@@ -79,7 +85,7 @@ class User extends Component {
           ))}
         </div>
         </div>
-
+        </div>
         
     );
   }

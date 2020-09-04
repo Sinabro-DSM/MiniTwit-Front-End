@@ -47,11 +47,11 @@ const SignUpCheck = () => {
         console.log(number);
         console.log(randomNumber);
         if(number == randomNumber){
-                axios.post("http://13.209.47.153:3000/user/register", data)
+                axios.post("http://13.209.67.14:3000/user/register", data)
             .then((res) => {
                 console.log(res);
                 history.push({
-                    pathname: "/SignUpSuccess"
+                    pathname: "/signUpSuccess"
                 })
             }).catch((error) => {
                 console.log(error);
@@ -63,10 +63,10 @@ const SignUpCheck = () => {
         <div className="app">
             <div>
                 <div className="headIcon"></div>
-                <header className="loginHeader">
+                <div className="loginHeaderBox">
                     <p className="title">메일을 확인해주세요</p>                    
                     <button className="nextBtn" onClick={SendNum}>다음</button>
-                </header>
+                </div>
                 <div className="inputField">
                     <form>
                         <div className="nameContainer">

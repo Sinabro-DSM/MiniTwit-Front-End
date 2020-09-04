@@ -6,9 +6,9 @@ import axios from "axios";
 
 function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nickname }) {
     const fixUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
-    const likeUrl = "http://54.180.103.146:3000/timeline/like/";
+    const likeUrl = "http://13.209.67.14:3000/timeline/like/";
     let likeButton = "";
-
+    let token = localStorage.getItem('accessToken')
     if(isLike === false) {
         likeButton = unlike;
     }
@@ -19,7 +19,7 @@ function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nic
     const config = {
         headers: {
             'access-token':
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTUwNzAyLCJleHAiOjE1OTkyMzcxMDJ9.Gvoy4TLF-EvtYdNYqrUx1kd7qsWxjehZq1YA9jdmbwQ",
+                token,
         }
     }
     const onLike = () => {

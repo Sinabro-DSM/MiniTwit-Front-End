@@ -33,10 +33,12 @@
   border-radius: 15px;
 }
 
-.sideBarIconContainer > div > h3 {
+h3 {
   margin: 0;
   padding: 0;
   margin-left: 20px;
+  color: black;
+  text-decoration: none;
 }
 
 .moreBox {
