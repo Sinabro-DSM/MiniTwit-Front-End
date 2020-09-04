@@ -6,7 +6,7 @@ import axios from "axios";
 
 function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nickname }) {
     const fixUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
-    const likeUrl = "http://13.209.67.14:3000/timeline/like/";
+    const likeUrl = "http://15.164.213.251:3000/timeline/like/";
     let likeButton = "";
     let token = localStorage.getItem('accessToken')
     if(isLike === false) {

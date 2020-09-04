@@ -15,7 +15,7 @@ const Login = () => {
             password : password
         }
 
-        axios.post('http://13.209.67.14:3000/user/login',data)
+        axios.post('http://15.164.213.251:3000/user/login',data)
         .then((res) => {
             console.log(res)
             localStorage.setItem('accessToken', res.data.accessToken);

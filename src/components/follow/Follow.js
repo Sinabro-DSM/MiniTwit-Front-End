@@ -23,7 +23,7 @@ class Follow extends Component {
   } 
 
   async componentDidMount() {
-    const resProfile = await axios.get("http://13.209.67.14:3000/profile/" + this.state.id, this.userToken);
+    const resProfile = await axios.get("http://15.164.213.251:3000/profile/" + this.state.id, this.userToken);
     this.setState
     ({ 
       viewFeed: resProfile.data.profile.Timelines, 

@@ -9,7 +9,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     let deleteButtonStyle = "";
     let likeButton = "";
     let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
-    const timelineUrl = "http://13.209.67.14:3000/timeline"
+    const timelineUrl = "http://15.164.213.251:3000/timeline"
     const likeUrl = "http://13.209.67.14:3000/timeline/like/"
     
     if(isMine === false)
@@ -27,6 +27,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     }
 
     let token = localStorage.getItem('accessToken')
+    let refreshToken = localStorage.getItem('refreshToken')
 
     const config = {
         headers : {'access-token' : token}
@@ -42,14 +43,14 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     const onSubmitLike = () => {
         if(isLike === false)
         {
-            axios.get(likeUrl + id, config)
+            axios.get(timelineUrl + "/like/" + id, config)
             setTimeout(function() {
                 window.location.reload();
               }, 300);
         }
         else
         {
-            axios.delete(likeUrl + id, config)
+            axios.delete(timelineUrl + "/like/" + id, config)
             setTimeout(function() {
                 window.location.reload();
               }, 300);

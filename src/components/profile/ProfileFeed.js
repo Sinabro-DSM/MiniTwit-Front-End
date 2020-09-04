@@ -8,7 +8,7 @@ import axios from 'axios';
 function ProfileFeed({id, email, name, imges, isLike, profileImg, content}) {
     let likeBtn = "";
     const imgUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
-    const urlLike = "http://13.209.67.14:3000/timeline/like/";
+    const urlLike = "http://15.164.213.251:3000/timeline/like/";
     let token = localStorage.getItem('accessToken')
     const config = {
         headers: {

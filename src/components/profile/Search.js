@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../../assets/style/profile/search.css";
 import UserList from "../profile/UserList";
+import Sidebar from '../Sidebar/Sidebar'
 import axios from "axios";
 import { Link, BrowserRouter as Router} from 'react-router-dom'
 
@@ -23,7 +24,7 @@ class Search extends Component {
   
   async userList() {
     const res = await axios.get(
-      "http://13.209.67.14:3000/profile/search/" + this.state.value
+      "http://15.164.213.251:3000/profile/search/" + this.state.value
     );
     this.setState({ users: res.data.users });
   }
