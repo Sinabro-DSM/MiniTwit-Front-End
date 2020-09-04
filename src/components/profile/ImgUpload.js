@@ -7,14 +7,14 @@ state = {
   imgUrl: '',
   imgFixUrl: "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
 }
-
+  token = localStorage.getItem('accessToken')
  changeImg = () => {
   const file = document.getElementById("file");
-
+  
   const config = {
     headers: {
       "access-token":
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YjA1NWE2NTZlMTE1ODg4NDJjNGMyNzBiZjU3Nzg2IiwiZW1haWwiOiJzZXVuZ2Jpbjk4NTBAZHNtLmhzLmtyIiwibmlja25hbWUiOiJuaWNrIiwiaWF0IjoxNTk5MTUzMzMyLCJleHAiOjE1OTkyMzk3MzJ9.NoE0Cr7TIz6IUTBDKJ9fDHx4-lnMxQyzmq0ejTd34eE",
+        this.token,
       "Content-type": "application/x-www-form-urlencoded",
     },
   };
@@ -59,7 +59,7 @@ render() {
       {profile}
       </div>
       <form
-        action="http://52.78.186.198:3000/profile"
+        action="http://13.209.67.14:3000/profile"
         method="put"
         enctype="multipart/form-data"
       >

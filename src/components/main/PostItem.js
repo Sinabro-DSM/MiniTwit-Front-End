@@ -9,8 +9,8 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     let deleteButtonStyle = "";
     let likeButton = "";
     let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
-    const timelineUrl = "http://13.209.47.153:3000/timeline"
-    const likeUrl = "http://13.209.47.153:3000/timeline/like/"
+    const timelineUrl = "http://13.209.67.14:3000/timeline"
+    const likeUrl = "http://13.209.67.14:3000/timeline/like/"
     
     if(isMine === false)
     {
