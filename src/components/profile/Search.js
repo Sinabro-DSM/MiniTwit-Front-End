@@ -6,7 +6,9 @@ import axios from "axios";
 import { Link, BrowserRouter as Router} from 'react-router-dom'
 
 class Search extends Component {
+  
   constructor(props) {
+    
     super(props);
     this.state = {
       search: true,
@@ -22,11 +24,20 @@ class Search extends Component {
     this.setState({ value: e.target.value });
   }
   
-  async userList() {
-    const res = await axios.get(
-      "http://15.164.213.251:3000/profile/search/" + this.state.value
-    );
-    this.setState({ users: res.data.users });
+  userList() {
+    const res = axios.get(
+      this.props.baseUrl + this.state.value
+    )
+    .then((res) => {
+      this.setState({ users: res.data.users });
+    })
+    .catch((error) => {
+      console.log(error);
+      if(error.response.status === 403)
+      {
+        this.props.refresh();
+      }
+    })
   }
 
   render() {
@@ -53,6 +64,7 @@ class Search extends Component {
                 id={user.id}
                 nickname={user.nickname}
                 imge={user.img}
+                baseUrl={this.props.baseUrl}
               />
             ))}
           </div>
