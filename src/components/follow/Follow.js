@@ -13,9 +13,7 @@ class Follow extends Component {
       userImg: "",
       isFollow: null,
       followerValue: 0,
-      followingValue: 0,
-      id: this.props.id,
-    };
+      followingValue: 0,    };
 
     this.following = this.following.bind(this);
     this.unFollow = this.unFollow.bind(this);
@@ -23,7 +21,7 @@ class Follow extends Component {
   } 
 
   async componentDidMount() {
-    const resProfile = await axios.get(this.props.baseUrl + 'profile/' + this.state.id, this.userToken);
+    const resProfile = await axios.get(this.props.baseUrl + 'profile/' + this.props.id, this.userToken);
     this.setState
     ({ 
       viewFeed: resProfile.data.profile.Timelines, 
@@ -33,7 +31,9 @@ class Follow extends Component {
       followerValue: resProfile.data.profile.Followers.length,
       followingValue: resProfile.data.profile.Followings.length,
       isFollow: resProfile.data.isFollow,
+      name: resProfile.data.profile.nickname,
     });
+    this.props.setName(resProfile.data.profile.nickname);
   }
   token = localStorage.getItem('accessToken');
   userToken = {

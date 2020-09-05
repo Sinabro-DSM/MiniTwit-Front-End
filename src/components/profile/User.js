@@ -63,7 +63,7 @@ class User extends Component {
     return (
       <div>
       <Sidebar></Sidebar>
-      <Header></Header>
+      <Header name={profileName}></Header>
       <div className="userContainer">
         <div className="background"></div>
         <button className="editBtn" onClick={this.open}>
