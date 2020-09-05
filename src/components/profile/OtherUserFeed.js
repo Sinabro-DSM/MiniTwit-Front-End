@@ -4,9 +4,8 @@ import like from '../../assets/img/like.png'
 import unlike from '../../assets/img/unlike.png';   
 import axios from "axios";
 
-function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nickname }) {
+function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nickname,baseUrl}) {
     const fixUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
-    const likeUrl = "http://15.164.213.251:3000/timeline/like/";
     let likeButton = "";
     let token = localStorage.getItem('accessToken')
     if(isLike === false) {
@@ -24,13 +23,13 @@ function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nic
     }
     const onLike = () => {
         if(isLike === false) {
-            axios.get(likeUrl + id, config);
+            axios.get(baseUrl + "timeline/like/" + id, config);
            setTimeout(function() {
                window.location.reload();
            }, 200);
         }
         else {
-            axios.delete(likeUrl + id, config);
+            axios.delete(baseUrl + "timeline/like/" + id, config);
             setTimeout(function() {
                 window.location.reload();
             }, 200);

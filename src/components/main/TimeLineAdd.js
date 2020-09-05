@@ -3,7 +3,7 @@ import profile from '../../assets/img/profile.PNG'
 import '../../assets/style/main/main.css'
 import axios from 'axios'
 
-const TimeLineAdd = ({userImg}) => {
+const TimeLineAdd = ({userImg, baseUrl}) => {
     let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
     const onSubmitPost = () =>
     {
@@ -42,7 +42,7 @@ const TimeLineAdd = ({userImg}) => {
                 let uploadFile = file[i];
                 form.append('file', uploadFile)
             }
-            const res = axios.post(timelineUrl, form, config)
+            const res = axios.post(baseUrl + "timeline", form, config)
             .then((res) => {
                 console.log(res)
                 setTimeout(function() {
@@ -56,13 +56,13 @@ const TimeLineAdd = ({userImg}) => {
         <div className="postAddContainer">
             <div className="addPostInput">
                 <img src={src + userImg}></img>
-                <form action="`${timelineUrl}`" method="post" enctype="multipart/form-data">
+                <form action={baseUrl + `timeline`} method="post" enctype="multipart/form-data">
                     <input placeholder="무슨 일이 일어나고 있나요?" name="content" maxLength="140"></input>
                 </form>
                 
             </div>
             <div className="addPost">
-            <form action="`${timelineUrl}`" method="post" enctype="multipart/form-data">
+            <form action={baseUrl + `timeline`} method="post" enctype="multipart/form-data">
                 <input multiple="multiple" id="file" type="file" name="file"/>
             </form>
                 <button onClick={onSubmitPost}>트윗</button>

@@ -4,7 +4,7 @@ import '../../assets/style/signUp/signUp.css';
 import axios from 'axios';
 
 
-const SignUp = () => {
+const SignUp = ({baseUrl}) => {
 
     let history = useHistory();
     const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ const SignUp = () => {
         }
         
         console.log(data.email)
-        const res = await axios.post("http://15.164.213.251:3000/user/email/send" , {email: data.email})
+        const res = await axios.post(baseUrl + "user/email/send" , {email: data.email})
         console.log(res.data)
         history.push({
             pathname: "/signUpCheck",

@@ -5,12 +5,10 @@ import '../../assets/style/main/main.css'
 import like from "../../assets/img/like.png"
 import unlike from "../../assets/img/unlike.png"
 
-const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadImg = []}) => {
+const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,baseUrl,uploadImg = []}) => {
     let deleteButtonStyle = "";
     let likeButton = "";
     let src = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/"
-    const timelineUrl = "http://15.164.213.251:3000/timeline"
-    const likeUrl = "http://13.209.67.14:3000/timeline/like/"
     
     if(isMine === false)
     {
@@ -34,7 +32,7 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     }
 
     const onRemove = async () => {
-        await axios.delete(timelineUrl + "/" + id, config)
+        await axios.delete(baseUrl + "timeline/" + id, config)
         setTimeout(function() {
             window.location.reload();
           }, 300);
@@ -43,14 +41,14 @@ const PostItem = ({id, email,date,nickname,userImg,content,isLike,isMine,uploadI
     const onSubmitLike = () => {
         if(isLike === false)
         {
-            axios.get(timelineUrl + "/like/" + id, config)
+            axios.get(baseUrl + "timeline/like/" + id, config)
             setTimeout(function() {
                 window.location.reload();
               }, 300);
         }
         else
         {
-            axios.delete(timelineUrl + "/like/" + id, config)
+            axios.delete(baseUrl + "/like/" + id, config)
             setTimeout(function() {
                 window.location.reload();
               }, 300);

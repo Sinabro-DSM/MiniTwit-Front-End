@@ -21,7 +21,7 @@ state = {
   let form = new FormData();
   form.append("file", file.files[0]);
 
-const res = axios.put("http://15.164.213.251:3000/profile/", form, config)
+const res = axios.put(this.props.baseUrl + "profile/", form, config)
     .then((response) => {
       console.log(response);
     })
@@ -59,7 +59,7 @@ render() {
       {profile}
       </div>
       <form
-        action="http://13.209.67.14:3000/profile"
+        action="http://15.164.213.251:3000/profile"
         method="put"
         enctype="multipart/form-data"
       >

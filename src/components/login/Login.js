@@ -3,7 +3,7 @@ import '../../assets/style/login/login.css';
 import axios from 'axios';
 import {Link,useHistory} from "react-router-dom"
 
-const Login = () => {
+const Login = ({baseUrl}) => {
     let history = useHistory();
     const onSubmitLogin = () => {
         const email = document.getElementsByName("email")[0].value.trim();
@@ -15,7 +15,7 @@ const Login = () => {
             password : password
         }
 
-        axios.post('http://15.164.213.251:3000/user/login',data)
+        axios.post(baseUrl + "/user/login",data)
         .then((res) => {
             console.log(res)
             localStorage.setItem('accessToken', res.data.accessToken);

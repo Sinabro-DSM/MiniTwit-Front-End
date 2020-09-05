@@ -2,7 +2,7 @@ import React from "react";
 import "../../assets/style/profile/edit.css";
 import ImgUpload from "./ImgUpload";
 
-function ProfileEdit({ isOpen, close }) {
+function ProfileEdit({ isOpen, close,baseUrl }) {
   return (
     <React.Fragment>
       {isOpen ? (
@@ -17,7 +17,8 @@ function ProfileEdit({ isOpen, close }) {
             <p className="content">
               마음에 드는 사진이 있나요? 지금 업로드 하세요.
             </p>
-            <ImgUpload />
+            <ImgUpload 
+            baseUrl={baseUrl}/>
           </div>
         </React.Fragment>
       ) : null}

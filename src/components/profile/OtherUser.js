@@ -4,7 +4,7 @@ import Follow from '../follow/Follow';
 import Sidebar from "../Sidebar/Sidebar";
 import Hedaer from "../header/Header"
 
-function OtherUser(props) {
+function OtherUser(props,{baseUrl}) {
   const {id} = props.match.params
     return (
       <div>
@@ -12,7 +12,7 @@ function OtherUser(props) {
         <Hedaer></Hedaer>
         <div className="userContainer">
           <div className="background"></div>
-          <Follow id={id}/>
+          <Follow id={id} baseUrl={baseUrl}/>
         </div>
       </div>
      
