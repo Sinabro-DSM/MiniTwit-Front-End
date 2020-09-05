@@ -45,7 +45,7 @@ const SignUp = () => {
         }
         
         console.log(data.email)
-        const res = await axios.post("http://13.209.67.14:3000/user/email/send" , {email: data.email})
+        const res = await axios.post("http://15.164.213.251:3000/user/email/send" , {email: data.email})
         console.log(res.data)
         history.push({
             pathname: "/signUpCheck",
