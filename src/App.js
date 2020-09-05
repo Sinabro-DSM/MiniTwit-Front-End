@@ -47,7 +47,7 @@ function App() {
         <Switch>
           <Route path="/users" render={() =><User refresh={refresh} baseUrl={baseUrl}/>}/>
           <Route exact path="/search" render={() =><Search refresh={refresh} baseUrl={baseUrl}/>}/>
-          <Route path="/otherUser/:id" render={() =><OtherUser refresh={refresh} baseUrl={baseUrl}/>}/>
+          <Route path="/otherUser/:id" render={({location, match}) =><OtherUser refresh={refresh} baseUrl={baseUrl} location={location} match={match}/>}/>
           <Route exact path="/" render={props => <FirstView baseUrl={baseUrl}/>}/>
           <Route exact path="/signUp" component={SignUp} baseUrl={baseUrl}/>
           <Route exact path="/signUpCheck" component={SignUpCheck} baseUrl={baseUrl}/>

@@ -26,7 +26,7 @@ class Search extends Component {
   
   userList() {
     const res = axios.get(
-      this.props.baseUrl + this.state.value
+      this.props.baseUrl + "profile/search/" + this.state.value
     )
     .then((res) => {
       this.setState({ users: res.data.users });
@@ -46,7 +46,7 @@ class Search extends Component {
     return (
       <React.Fragment>
         <div className="side">
-          <p>rin3583</p>
+          <p>{this.props.name}</p>
           <input
             type="text"
             placeholder="친구를 찾아보세요"
