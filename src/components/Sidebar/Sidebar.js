@@ -17,7 +17,7 @@ const Sidebar = () => {
     return (
       <div className="mainContainer">
         <aside className="sidebar">
-          <Link to="/timeLine"><div className="twitIcon"></div></Link>
+        <Link to="/timeLine"><div className="twitIcon"></div></Link>
           <article className="sideBarIconContainer">
             <div>
               <img src={profile}></img>
@@ -36,7 +36,7 @@ const Sidebar = () => {
     return (
       <div className="mainContainer">
         <aside className="sidebar">
-          <div className="twitIcon"></div>
+        <Link to="/timeLine"><div className="twitIcon"></div></Link>
           <article className="sideBarIconContainer">
             <div>
               <img src={profile}></img>
