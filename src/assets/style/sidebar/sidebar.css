@@ -48,7 +48,7 @@ h3 {
   flex-wrap: wrap;
 }
 
-.moreBox > button {
+.logoutButton{
   background-color: #6fbef7;
   color: white;
   width: 200px;

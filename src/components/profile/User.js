@@ -8,8 +8,10 @@ import Sidebar from "../Sidebar/Sidebar";
 import Header from '../header/Header'
 
 class User extends Component {
+  
   constructor(props) {
     super(props);
+    
     this.state = {
       modalOpen: false,
       profileFeed: [],
@@ -27,15 +29,23 @@ class User extends Component {
         this.token
     }
   }
-  async componentDidMount() {
-    const res = await axios.get("http://13.209.67.14:3000/profile/", this.config);
-    this.setState({ 
-      profileFeed: res.data.profile.Timelines,
-      profileName: res.data.profile.nickname,
-      profileImg: res.data.profile.img,
-      profileEmail: res.data.profile.email,
-      follower: res.data.profile.Followers.length,
-      following: res.data.profile.Followings.length,
+  componentDidMount() {
+    const res = axios.get(this.props.baseUrl + "profile/", this.config)
+    .then((res) => {
+      this.setState({ 
+        profileFeed: res.data.profile.Timelines,
+        profileName: res.data.profile.nickname,
+        profileImg: res.data.profile.img,
+        profileEmail: res.data.profile.email,
+        follower: res.data.profile.Followers.length,
+        following: res.data.profile.Followings.length,
+      })
+    })
+    .catch((error) => {
+      if(error.response.status === 403)
+      {
+        this.props.refresh();
+      }
     })
   }
 
@@ -47,6 +57,7 @@ class User extends Component {
     this.setState({ modalOpen: false });
   };
   render() {
+    
     const imgUrl = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
     const { profileFeed, profileName, profileImg, profileEmail, follower, following} = this.state;
     return (
@@ -58,7 +69,7 @@ class User extends Component {
         <button className="editBtn" onClick={this.open}>
           프로필 설정하기
         </button>
-        <ProfileEdit isOpen={this.state.modalOpen} close={this.close} />
+        <ProfileEdit isOpen={this.state.modalOpen} close={this.close} baseUrl={this.props.baseUrl}/>
         <div className="profilePicture" src={imgUrl+profileImg}></div>
         <div className="profile">
           <span id="name">{profileName}</span>
@@ -80,7 +91,7 @@ class User extends Component {
               imges={feed.Images}
               isLike={feed.isLike}
               profileImg={profileImg}
-              
+              baseUrl={this.props.baseUrl}
               />
           ))}
         </div>

@@ -1,22 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './../../assets/style/firstView/firstView.css';
 import  axios from 'axios';
 import { Link, useHistory} from 'react-router-dom'
 
-const FirstView = () => {
+const FirstView = ({baseUrl}) => {
     let history = useHistory();
+    let token = useState();
     const onSubmitLogin = () => {
+        console.log(baseUrl)
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         console.log(email);
         const data = {email, password};
-        axios.post('http://3.34.198.6:3000/user/login',data)
+        axios.post(baseUrl + "user/login",data)
         .then((res) => {
             console.log(res);
             localStorage.setItem('accessToken', res.data.accessToken);
             localStorage.setItem('refreshToken', res.data.refreshToken);
             history.push({
                 pathname: "/timeLine"
+                
             })
         }).catch((error) => {
             console.log(error);

@@ -8,12 +8,16 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 const Sidebar = () => {
   const [showing, setShowing] = useState(false);
   const onClickMoreButton = () => setShowing(!showing);
+  const onLogout = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+  }
 
   if (!showing) {
     return (
       <div className="mainContainer">
         <aside className="sidebar">
-          <Link to="/timeLine"><div className="twitIcon"></div></Link>
+        <Link to="/timeLine"><div className="twitIcon"></div></Link>
           <article className="sideBarIconContainer">
             <div>
               <img src={profile}></img>
@@ -32,7 +36,7 @@ const Sidebar = () => {
     return (
       <div className="mainContainer">
         <aside className="sidebar">
-          <div className="twitIcon"></div>
+        <Link to="/timeLine"><div className="twitIcon"></div></Link>
           <article className="sideBarIconContainer">
             <div>
               <img src={profile}></img>
@@ -41,7 +45,7 @@ const Sidebar = () => {
             <div className="moreBox" onClick={onClickMoreButton}>
               <img src={threeDot}></img>
               <h3>더보기</h3>
-              <button>로그아웃</button>
+              <Link to="/"><button className="logoutButton" onClick={onLogout}>로그아웃</button></Link>
             </div>
           </article>
         </aside>

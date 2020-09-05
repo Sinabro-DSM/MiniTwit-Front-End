@@ -2,33 +2,41 @@ import React from 'react';
 import TimeLineAdd from './TimeLineAdd';
 import PostItem from './PostItem';
 import axios from 'axios'
+import Sidebar from '../Sidebar/Sidebar'
+import Header from '../header/Header'
 
 class TimeLineView extends React.Component {
+  constructor(props) {
+    super(props);
+  }
     scrollHeight = document.documentElement.scrollHeight;
     scrollTop = document.documentElement.scrollTop;
     clientHeight = document.documentElement.clientHeight;
-    timelineUrl = "http://13.209.47.153:3000/timeline"
     state = {
-      isLoading: true,
+      isLoading: false,
       loading : true,
       setFetching : false,
       posts: [],
+      userImg : "",
       params : 1
     };
     token = localStorage.getItem('accessToken')
+    refreshToken = localStorage.getItem('refreshToken')
     config = {
         headers : {'access-token' : this.token}
     }
+    refreshConfig = {
+      headers : {'refresh-token' : this.refreshToken}
+    }
 
     handleScroll = () => {
-        
-        if (this.scrollTop + this.clientHeight >= this.scrollHeight && this.state.isLoading === false) {
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollTop = document.documentElement.scrollTop;
+        const clientHeight = document.documentElement.clientHeight;
+        if (scrollTop + clientHeight >= scrollHeight && this.state.isLoading === false) {
             console.log(this.state.posts)
-            if(this.state.posts.length >= 10)
-            {
-                this.getMorePosts(); 
-            }
-            
+            this.getMorePosts();
+
           this.setState(() => {
             return {params: this.state.params + 1};
           });
@@ -36,7 +44,7 @@ class TimeLineView extends React.Component {
        };
        
        getMorePosts = () => {
-        axios.get(this.timelineUrl + "/" + this.state.params, this.config)
+        axios.get(this.props.baseUrl + "timeline/" + this.state.params, this.config)
           .then((response) => {
             const fetchedData = response.data.timelines; 
             if(this.scrollTop + this.clientHeight >= this.scrollHeight)
@@ -44,20 +52,40 @@ class TimeLineView extends React.Component {
                 const mergedData = this.state.posts.concat(...fetchedData);
                 this.setState({posts : mergedData}); 
             }
-            
         });
       };
-      
-    async getPosts() {
-       const res = await axios.get(this.timelineUrl + "/" + this.state.params, this.config);
-        this.setState({isLoading : false})
+    getPosts() {
+      const res = axios.get(this.props.baseUrl + "timeline/" + this.state.params, this.config)
+      .then((res) => {
         console.log(this.state.params)
-        console.log(res)
-      
-        this.setState({posts : res.data.timelines})
-        console.log(this.state.posts)
+         console.log(res)
+         this.setState({posts : res.data.timelines})
+         this.setState({userImg : res.data.userImg})
+         console.log(this.state.posts)
+      })
+      .catch((error) => {
+        if(error.response.status === 403)
+        {
+          console.log('hi')
+          this.props.refresh();
+        }
+      })
+      // try {  
+      //    console.log(this.state.params)
+      //    console.log(res)
+      //    this.setState({posts : res.data.timelines})
+      //    this.setState({userImg : res.data.userImg})
+      //    console.log(this.state.posts)
+      // }
+      // catch(e) {
+      //   console.log(e);console.log('hi')
+      //   if(e.response.status === 403)
+      //   {
+      //     this.refresh();
+      //   }
+      // }
     };
-    
+
     async componentDidMount() {
         this.getPosts()
         window.addEventListener("scroll", this.handleScroll);
@@ -67,14 +95,17 @@ class TimeLineView extends React.Component {
       }
       
     render() {
-      const { isLoading, posts } = this.state;
+      
+      const { isLoading, posts, userImg } = this.state;
       return (
         <div>
           {isLoading ? (
             <TimeLineAdd></TimeLineAdd>
           ) : (
             <div>
-                <TimeLineAdd></TimeLineAdd>
+                <Sidebar></Sidebar>
+                <Header></Header>
+                <TimeLineAdd baseUrl={this.props.baseUrl} userImg={userImg}></TimeLineAdd>
               {posts.map((post) => (
                 <PostItem
                   key={post.id}
@@ -87,6 +118,7 @@ class TimeLineView extends React.Component {
                   nickname={post.User.nickname}
                   userImg={post.User.img}
                   uploadImg={post.Images}
+                  baseUrl={this.props.baseUrl}
                   ></PostItem>
               ))}
             </div>

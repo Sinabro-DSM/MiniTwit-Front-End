@@ -23,7 +23,7 @@ class Follow extends Component {
   } 
 
   async componentDidMount() {
-    const resProfile = await axios.get("http://13.209.67.14:3000/profile/" + this.state.id, this.userToken);
+    const resProfile = await axios.get(this.props.baseUrl + 'profile/' + this.state.id, this.userToken);
     this.setState
     ({ 
       viewFeed: resProfile.data.profile.Timelines, 
@@ -53,12 +53,12 @@ class Follow extends Component {
   
 
   following() {
-    const res = axios.get('http://13.209.67.14:3000/follow/' + this.state.id, this.followToken);
+    const res = axios.get(this.props.baseUrl + 'follow/' + this.state.id, this.followToken);
     this.setState({isFollow: true});
   }
 
   unFollow() {
-    const res = axios.delete('http://13.209.67.14:3000/follow/' + this.state.id, this.followToken);
+    const res = axios.delete(this.props.baseUrl + 'follow/' + this.state.id, this.followToken);
     this.setState({isFollow: false})
   }
 
@@ -96,6 +96,7 @@ class Follow extends Component {
               nickname={userName}
               isLike={view.isLike}
               userImg={userImg}
+              baseUrl={this.props.baseUrl}
             />
           ))}
         </div>
