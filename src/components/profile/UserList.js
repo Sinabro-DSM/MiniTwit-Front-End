@@ -5,10 +5,8 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 function UserList({ id, nickname, imge }) {
   const imgSrc = "https://minitwit-sinabro.s3.ap-northeast-2.amazonaws.com/";
   const userId = id;
-  console.log(id);
   return (
-    <div className="searchLayout">
-      <Router>
+    <div>
       <Link to={'otherUser/' + userId}>
       <div className="userList" id={id}>
         <div className="profileImg">
@@ -16,7 +14,6 @@ function UserList({ id, nickname, imge }) {
         <a>{nickname}</a>
       </div>
       </Link>
-      </Router>
     </div>
   );
 }

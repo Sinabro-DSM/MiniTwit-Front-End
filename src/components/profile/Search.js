@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../../assets/style/profile/search.css";
 import UserList from "../profile/UserList";
-import Sidebar from '../Sidebar/Sidebar'
 import axios from "axios";
 import { Link, BrowserRouter as Router} from 'react-router-dom'
+import Sidebar from "../Sidebar/Sidebar";
 
 class Search extends Component {
   
@@ -42,11 +42,15 @@ class Search extends Component {
 
   render() {
     const { users, search } = this.state;
-    console.log(users);
+    const isLink = window.location.pathname;
     return (
       <React.Fragment>
-        <div className="side">
-          <p>{this.props.name}</p>
+          {isLink === "/search" && (
+          
+          <Sidebar/>
+          )}
+        <div className="side">         
+        <span>{this.props.name}</span>
           <input
             type="text"
             placeholder="친구를 찾아보세요"
@@ -54,7 +58,7 @@ class Search extends Component {
             onChange={this.onChange}
           />
          
-        <Router> <Link to="/search"> <button onClick={this.userList}>검색</button></Link></Router>
+        <Link to="/search"><button className="searchBtn" onClick={this.userList}>검색</button></Link>
         </div>
         {search === true && (
           <div>
@@ -69,7 +73,8 @@ class Search extends Component {
             ))}
           </div>
           
-        )}
+        )} 
+      
       </React.Fragment>
     );
   }

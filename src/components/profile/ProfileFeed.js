@@ -66,7 +66,6 @@ function ProfileFeed({id, email, name, imges, isLike, profileImg, content, baseU
                </div>
             <img className="likeButton" src={likeBtn} onClick={onLike}/>
             </div>
-             
             </div> 
         </div>
     );

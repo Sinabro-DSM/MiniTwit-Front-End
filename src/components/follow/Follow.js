@@ -13,7 +13,8 @@ class Follow extends Component {
       userImg: "",
       isFollow: null,
       followerValue: 0,
-      followingValue: 0,    };
+      followingValue: 0,  
+    };
 
     this.following = this.following.bind(this);
     this.unFollow = this.unFollow.bind(this);
@@ -34,6 +35,7 @@ class Follow extends Component {
       name: resProfile.data.profile.nickname,
     });
     this.props.setName(resProfile.data.profile.nickname);
+    console.log(this.state.isFollow);
   }
   token = localStorage.getItem('accessToken');
   userToken = {
@@ -53,12 +55,12 @@ class Follow extends Component {
   
 
   following() {
-    const res = axios.get(this.props.baseUrl + 'follow/' + this.state.id, this.followToken);
+    const res = axios.get(this.props.baseUrl + 'follow/' + this.props.id, this.followToken);
     this.setState({isFollow: true});
   }
 
   unFollow() {
-    const res = axios.delete(this.props.baseUrl + 'follow/' + this.state.id, this.followToken);
+    const res = axios.delete(this.props.baseUrl + 'follow/' + this.props.id, this.followToken);
     this.setState({isFollow: false})
   }
 
