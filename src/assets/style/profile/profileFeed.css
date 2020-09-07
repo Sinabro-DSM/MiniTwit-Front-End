@@ -9,10 +9,7 @@
 
 .postsItem {
     width: 830px;
-    border-bottom : 1px solid #70707031;
-    border-right: 1px solid #70707031;
-    border-left: 1px solid #70707031;
-    padding-top: 10px;
+    border: 1px solid #70707031;
     display: flex;
     align-items: center;
 }

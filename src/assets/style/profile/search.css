@@ -2,22 +2,23 @@
   border: 1px solid hsla(0, 0%, 44%, 0.3);
   width: 830px;
   height: 55px;
-  margin-left: 500px;
+  margin-left: 502px;
 }
 
-.side > p {
+.side > span {
   margin: 10px 20px;
   font-size: 20px;
   font-weight: bold;
   display: inline-block;
 }
 
+
 .side > input {
   border: 1px solid hsla(205, 89%, 70%, 0.34);
   width: 200px;
   height: 35px;
   border-radius: 10px;
-  margin: 7px 0px 0px 400px;
+  margin: 7px 0px 0px 420px;
   background-image: url(../../img/searchImg.png);
   background-repeat: no-repeat;
   background-position: 8px center;
@@ -28,7 +29,7 @@
 
 
 
-.side > button {
+.searchBtn {
     margin: 7px;
     background-color: #6fbef7;
     color: white;
