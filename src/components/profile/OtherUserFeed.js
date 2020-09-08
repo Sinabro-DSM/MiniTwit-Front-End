@@ -1,5 +1,6 @@
 import React from "react";
-import '../../assets/style/profile/OtherUserFeed.css';
+import '../../assets/style/profile/profileFeed.css';
+import '../../assets/style/main/main.css';
 import like from '../../assets/img/like.png'
 import unlike from '../../assets/img/unlike.png';   
 import axios from "axios";
@@ -37,20 +38,26 @@ function OtherUserFeed({id, isLike, user, email, content, userImg, imges=[], nic
     }
 
     return(
-        <div className="otherFeed">
-            <div className="otherFeedList">
-                <div className="userProfile">
-                <img src={fixUrl + userImg} />
+        <div className="postsItem">
+             <img src={fixUrl + userImg} />
+            <div className="contentsContainer">
+                <div className="infoBox">
+                    <div className="infoInnerBox">
+                      <h3>{nickname}</h3>
+                  <div className="userNameBox">
+                 <span>{email}</span>
                 </div>
-                <span id="nickname">{nickname}</span>
-                <span id="email">{email}</span>
-                <span id="content">{content}</span>
-                <div className="contentImg">
+                </div>
+                </div>
+            <div className="contentsBox">
+                <p>{content}</p>
+                <div>
                 {imges.map((img)=>(                    
                 <img key={img.id} src={fixUrl + img.img}/>
                 ))}
                 </div>
-                <img className="likeBtn" src={likeButton} onClick={onLike}></img>
+                <img className="likeButton" src={likeButton} onClick={onLike}></img>
+            </div>
             </div>
         </div>
     );

@@ -13,8 +13,7 @@ class Follow extends Component {
       userImg: "",
       isFollow: null,
       followerValue: 0,
-      followingValue: 0,
-      id: this.props.id,
+      followingValue: 0,  
     };
 
     this.following = this.following.bind(this);
@@ -22,18 +21,30 @@ class Follow extends Component {
     
   } 
 
-  async componentDidMount() {
-    const resProfile = await axios.get(this.props.baseUrl + 'profile/' + this.state.id, this.userToken);
-    this.setState
-    ({ 
-      viewFeed: resProfile.data.profile.Timelines, 
-      userEmail: resProfile.data.profile.email,
-      userName: resProfile.data.profile.nickname, 
-      userImg: resProfile.data.profile.img,
-      followerValue: resProfile.data.profile.Followers.length,
-      followingValue: resProfile.data.profile.Followings.length,
-      isFollow: resProfile.data.isFollow,
-    });
+  componentDidMount() {
+    const resProfile = axios.get(this.props.baseUrl + 'profile/' + this.props.id, this.userToken)
+    .then((res) => {
+      this.setState
+      ({ 
+        viewFeed: resProfile.data.profile.Timelines, 
+        userEmail: resProfile.data.profile.email,
+        userName: resProfile.data.profile.nickname, 
+        userImg: resProfile.data.profile.img,
+        followerValue: resProfile.data.profile.Followers.length,
+        followingValue: resProfile.data.profile.Followings.length,
+        isFollow: resProfile.data.isFollow,
+        name: resProfile.data.profile.nickname,
+      });
+      this.props.setName(resProfile.data.profile.nickname);
+      console.log(this.state.isFollow);
+    })
+    .catch((error) => {
+      if(error.response && error.response.status === 403)
+      {
+        this.props.refresh();
+      }
+    })
+    
   }
   token = localStorage.getItem('accessToken');
   userToken = {
@@ -53,12 +64,12 @@ class Follow extends Component {
   
 
   following() {
-    const res = axios.get(this.props.baseUrl + 'follow/' + this.state.id, this.followToken);
+    const res = axios.get(this.props.baseUrl + 'follow/' + this.props.id, this.followToken);
     this.setState({isFollow: true});
   }
 
   unFollow() {
-    const res = axios.delete(this.props.baseUrl + 'follow/' + this.state.id, this.followToken);
+    const res = axios.delete(this.props.baseUrl + 'follow/' + this.props.id, this.followToken);
     this.setState({isFollow: false})
   }
 

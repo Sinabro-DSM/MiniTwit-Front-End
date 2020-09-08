@@ -18,7 +18,8 @@ class TimeLineView extends React.Component {
       setFetching : false,
       posts: [],
       userImg : "",
-      params : 1
+      params : 1,
+      userName: "",
     };
     token = localStorage.getItem('accessToken')
     refreshToken = localStorage.getItem('refreshToken')
@@ -59,8 +60,9 @@ class TimeLineView extends React.Component {
       .then((res) => {
         console.log(this.state.params)
          console.log(res)
-         this.setState({posts : res.data.timelines})
-         this.setState({userImg : res.data.userImg})
+         this.setState({posts: res.data.timelines})
+         this.setState({userImg: res.data.userImg})
+         this.setState({userName: res.data.nickname})
          console.log(this.state.posts)
       })
       .catch((error) => {
@@ -70,20 +72,6 @@ class TimeLineView extends React.Component {
           this.props.refresh();
         }
       })
-      // try {  
-      //    console.log(this.state.params)
-      //    console.log(res)
-      //    this.setState({posts : res.data.timelines})
-      //    this.setState({userImg : res.data.userImg})
-      //    console.log(this.state.posts)
-      // }
-      // catch(e) {
-      //   console.log(e);console.log('hi')
-      //   if(e.response.status === 403)
-      //   {
-      //     this.refresh();
-      //   }
-      // }
     };
 
     async componentDidMount() {
@@ -96,7 +84,7 @@ class TimeLineView extends React.Component {
       
     render() {
       
-      const { isLoading, posts, userImg } = this.state;
+      const { isLoading, posts, userImg, userName } = this.state;
       return (
         <div>
           {isLoading ? (
@@ -104,7 +92,7 @@ class TimeLineView extends React.Component {
           ) : (
             <div>
                 <Sidebar></Sidebar>
-                <Header></Header>
+                <Header name={userName}></Header>
                 <TimeLineAdd baseUrl={this.props.baseUrl} userImg={userImg}></TimeLineAdd>
               {posts.map((post) => (
                 <PostItem

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/style/profile/profileFeed.css';
+import '../../assets/style/main/main.css';
 import like from '../../assets/img/like.png';
 import unlike from '../../assets/img/unlike.png';
 import axios from 'axios';
@@ -43,23 +44,29 @@ function ProfileFeed({id, email, name, imges, isLike, profileImg, content, baseU
         }, 200);
     }
     return(
-        <div className="profileFeed">
-            <div className="feedList">
-            <div className="profileImge">
-                <img src={imgUrl + profileImg} />
-            </div>
-            
-            <p className="remove" onClick={remove}>X</p>
-            <span id="name">{name}</span>
-            <span id="email">{email}</span>
-            <span id="content">{content}</span>
-            <div className="feedImg">
-                {imges.map((imge) => (
-                    <img key={imge.id} src={imgUrl + imge.img}/>
-                ))}
-            </div>
+            <div className="postsItem">
+                 <img src={imgUrl + profileImg} />
+              <div className="contentsContainer">
+                <div className="infoBox">
+                    <div className="infoInnerBox">
+                        <h3>{name}</h3>                   
+                        <div className="userNameBox">
+                            <span>{email}</span>
+                        </div>
+                    </div>
+                <button onClick={remove}>X</button>
+                 </div>
+                
+                <div className="contentsBox">
+                <p>{content}</p>
+                    <div>
+                    {imges.map((imge) => (
+                      <img key={imge.id} src={imgUrl + imge.img}/>
+                   ))}
+               </div>
             <img className="likeButton" src={likeBtn} onClick={onLike}/>
             </div>
+            </div> 
         </div>
     );
 }
