@@ -21,21 +21,30 @@ class Follow extends Component {
     
   } 
 
-  async componentDidMount() {
-    const resProfile = await axios.get(this.props.baseUrl + 'profile/' + this.props.id, this.userToken);
-    this.setState
-    ({ 
-      viewFeed: resProfile.data.profile.Timelines, 
-      userEmail: resProfile.data.profile.email,
-      userName: resProfile.data.profile.nickname, 
-      userImg: resProfile.data.profile.img,
-      followerValue: resProfile.data.profile.Followers.length,
-      followingValue: resProfile.data.profile.Followings.length,
-      isFollow: resProfile.data.isFollow,
-      name: resProfile.data.profile.nickname,
-    });
-    this.props.setName(resProfile.data.profile.nickname);
-    console.log(this.state.isFollow);
+  componentDidMount() {
+    const resProfile = axios.get(this.props.baseUrl + 'profile/' + this.props.id, this.userToken)
+    .then((res) => {
+      this.setState
+      ({ 
+        viewFeed: resProfile.data.profile.Timelines, 
+        userEmail: resProfile.data.profile.email,
+        userName: resProfile.data.profile.nickname, 
+        userImg: resProfile.data.profile.img,
+        followerValue: resProfile.data.profile.Followers.length,
+        followingValue: resProfile.data.profile.Followings.length,
+        isFollow: resProfile.data.isFollow,
+        name: resProfile.data.profile.nickname,
+      });
+      this.props.setName(resProfile.data.profile.nickname);
+      console.log(this.state.isFollow);
+    })
+    .catch((error) => {
+      if(error.response && error.response.status === 403)
+      {
+        this.props.refresh();
+      }
+    })
+    
   }
   token = localStorage.getItem('accessToken');
   userToken = {

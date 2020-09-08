@@ -7,8 +7,6 @@ import {
 } from "react-router-dom";
 import SignUpCheck from './components/signUp/SignUpCheck';
 import SignUpSuccess from './components/signUp/SignUpSuccess';
-import Header from "./components/header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Search from './components/profile/Search';
 import User from "./components/profile/User";
 import OtherUser from './components/profile/OtherUser';

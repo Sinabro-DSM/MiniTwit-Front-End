@@ -19,7 +19,7 @@ class OtherUser extends Component {
         <Hedaer name={this.state.name}></Hedaer>
         <div className="userContainer">
           <div className="background"></div>
-          <Follow id={id} setName={this.setName} baseUrl={this.props.baseUrl}/>
+          <Follow id={id} refresh={this.props.refresh} setName={this.setName} baseUrl={this.props.baseUrl}/>
         </div>
       </div>
      
